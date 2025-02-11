@@ -1,5 +1,5 @@
 ---
-title: "dsp4sh_ref_states2"
+title: "dsp4sh_ref_states_figs"
 author: "Katy Dynarski"
 date: "2024-08-07"
 output: 
@@ -131,12 +131,6 @@ proj_tem_prep_clim <- ggplot(clim, aes(x = project)) +
         plot.margin = margin(l=30))
 
 proj_tem_prep_clim
-ggsave(here("figs", "ref_states_figs", "fig1a_climate_2_axis.png"), width=6.5, height=5, units="in", dpi=400)
-
-# Optional to include in figure: color text labels to indicate which symbol is which
-  # Manually add legend labels
-  # annotate("text", x = 1, y = max(clim$mean_map) * 1.1, label = "Annual Precipitation (mm)", color = "#1E8E99FF", hjust = 0) +
-  # annotate("text", x = 1, y = min(clim$mean_mat) * 40 * 1.1, label = "Annual Average Temperature (°C)", color = "#CC5800FF", hjust = 0) +
 ```
 
 ## Figure 1B - Soil texture triangle showing mean SSURGO texture in top horizon for each project
@@ -211,7 +205,6 @@ triangle_plot <- ggtern(ssurgo_texture2, aes(x=sand_pct, y=clay_pct, z=silt_pct,
   theme_clockwise() +
   scale_color_paletteer_d("rcartocolor::Safe", name="Project & Soil Series")
 triangle_plot
-ggsave(here("figs", "ref_states_figs", "fig1b_ssurgo_texture.png"), width=7, height=5.5, units="in", dpi=400)
 ```
 
 # Summary Figures of SOC Stocks
@@ -284,7 +277,6 @@ soc_nolett_grid
 soc_nolett_leg <- get_legend(soc100_boxplot_nolett)
 
 plot_grid(soc_nolett_grid, soc_nolett_leg, rel_widths = c(1, .23))
-ggsave(here("figs", "ref_states_figs","fig2_dsp4sh_soc_stocks.png"), width=11, height=10, units="in", dpi=400)
 ```
 
 Takeaways:
@@ -349,7 +341,6 @@ soc_esm_grid
 soc_esm_leg <- get_legend(soc100_esm_boxplot)
 
 plot_grid(soc_esm_grid, soc_esm_leg, rel_widths = c(1, .23))
-ggsave(here("figs", "ref_states_figs","figsupp1_dsp4sh_soc_esm_stocks.png"), width=11, height=10, units="in", dpi=400)
 ```
 ## Comparison of ESM results to fixed depth results
 
@@ -382,7 +373,6 @@ ggplot(soc_fixed_esm, aes(x=label, y=soc_stock, fill=calc_method)) +
   scale_fill_paletteer_d("nationalparkcolors::Arches", name="Calculation method",
                          labels=c("ESM (Cubic Spline)", "Fixed Depth")) +
   theme_katy()
-ggsave(here("figs", "ref_states_figs", "soc_fixed_esm_comparison.png"), width=7, height=11, dpi=400)
 ```
 
 Table of difference in SOC stocks calculated via fixed depth vs. ESM:
@@ -399,8 +389,6 @@ soc_stock_comparison <- soc_fixed_esm %>%
   arrange(project, label, depth)
 
 flextable(soc_stock_comparison)
-
-write_csv(soc_stock_comparison, here("figs", "ref_states_figs", "soc_stock_fd_esm_difference.csv"))
 
 soc_stock_comparison_summary <- soc_stock_comparison %>%
   ungroup() %>%
@@ -455,7 +443,6 @@ ggplot(slab_mgmt, aes(x=top, y=p.q50)) +
                      breaks=c("BAU", "SHM", "Ref"), 
                     name="Management") +
   theme_katy()
-ggsave(here("figs", "ref_states_figs","fig2_soc_ribbon_depth.png"), width=10, height=11, units="in", dpi=400)
 ```
 
 Takeaways:
@@ -547,7 +534,6 @@ pred100 <- ggplot(pred_stock100, aes(x=x, y=predicted)) +
 
 plot_grid(pred30, pred100,
           ncol=1, labels=c("A", "B"))
-ggsave(here("figs", "ref_states_figs","lmer_results.png"), width=9, height=9, units="in", dpi=400)
 ```
 
 Takeaways:
@@ -612,7 +598,6 @@ shape_boxplot_all <- ggplot(shape_spatial_proj, aes(x=project, y=score_mean_soc,
   theme_katy() +
   theme(axis.text.x = element_text(angle = 45, hjust=1))
 shape_boxplot_all
-ggsave(here("figs", "ref_states_figs","fig5_shape_all.png"), width=10, height=6, units="in", dpi=400)
 
 # Boxplot showing SHAPE scores in different management categories (no separation by project)
 shape_boxplot_condensed <- ggplot(shape_spatial_proj, aes(x=factor(label, levels=c("BAU", "SHM", "Ref")), 
@@ -629,7 +614,6 @@ shape_boxplot_condensed <- ggplot(shape_spatial_proj, aes(x=factor(label, levels
   theme_katy() +
   theme(plot.title=element_text(hjust=0.5), legend.position="none")
 shape_boxplot_condensed
-ggsave(here("figs", "ref_states_figs", "fig4_soc_shape_boxplot.png"), width=6, height=5, units="in", dpi=400)
 
 # Panel figure of all SHAPE and consolidated SHAPE AND SOC stock
 shape_grid_bottom <- plot_grid(shape_boxplot_condensed + theme(legend.position="none"),
@@ -643,7 +627,6 @@ shape_grid <- plot_grid(shape_boxplot_all + theme(legend.position="none"),
 shape_leg <- get_legend(shape_boxplot_all)
 
 plot_grid(shape_grid, shape_leg, rel_widths = c(1, 0.23))
-ggsave(here("figs", "ref_states_figs","fig4_shape_scores.png"), width=10, height=10, units="in", dpi=400)
 ```
 
 Overall, the SHAPE scores support the Ref/SHM/BAU groupings:
@@ -707,7 +690,6 @@ ggplot(shape_soc_utrgv, aes(x=ecological_state,
   theme(legend.position="none",
         strip.background = element_blank(),
         strip.placement = "outside")
-ggsave(here("figs", "ref_states_figs", "fig5_utrgv_shape_ecosite.png"), width=8, height=5, dpi=400, units="in")
 ```
 
 The tricky thing here is that woodland state is not actually the reference state for this ecological site - the reference state is savannah!
@@ -721,5 +703,4 @@ treatment_table <- project %>%
   select(project, label, lu, till, trt) %>%
   distinct()
 flextable(treatment_table)
-write_csv(treatment_table, here("figs", "ref_states_figs", "treatment_table.csv"))
 ```
