@@ -234,13 +234,13 @@ soc_pedon %>% slice_max(soc_stock_100cm, n = 1) %>%
 
 Plot boxplots of total SOC stocks under different management treatments:
 
-```{r fig_2, echo=FALSE}
+```{r fig_2}
 soc_pedon_toplot <- soc_pedon %>%
   filter(project!="TexasA&MPt-2") %>% # Exclude Texas A&M pt 2 because data was only collected to ~20 cm, so no stocks were calculated
   mutate(label=factor(label, levels=c("BAU", "SHM", "Ref")))
 
 # Boxplot comparing total SOC stocks (100 cm) between treatments within soil types
-soc100_boxplot_nolett <- ggplot(soc_pedon_toplot, 
+soc100_boxplot <- ggplot(soc_pedon_toplot, 
                          aes(x=project, y=soc_stock_100cm, fill=label)) +
   geom_boxplot() +
   labs(x="Project", y="SOC stock to 100 cm depth (Mg/ha)") +
@@ -252,7 +252,7 @@ soc100_boxplot_nolett <- ggplot(soc_pedon_toplot,
   theme(axis.text.x = element_text(angle = 45, hjust=1))
 
 # Boxplot comparing total SOC stocks (30 cm) between treatments within soil types
-soc30_boxplot_nolett <- ggplot(soc_pedon_toplot, 
+soc30_boxplot <- ggplot(soc_pedon_toplot, 
                          aes(x=project, y=soc_stock_0_30cm, fill=label)) +
   geom_boxplot() +
   labs(x="Project", y="SOC stock to 30 cm depth (Mg/ha)") +
@@ -263,13 +263,13 @@ soc30_boxplot_nolett <- ggplot(soc_pedon_toplot,
   theme_katy_grid() +
   theme(axis.text.x = element_text(angle = 45, hjust=1))
 
-soc_nolett_grid <- plot_grid(soc30_boxplot_nolett + 
+soc_grid <- plot_grid(soc30_boxplot + 
                                theme(legend.position="none", axis.title.x=element_blank(), axis.text.x=element_blank()),
-          soc100_boxplot_nolett + theme(legend.position="none"),
+          soc100_boxplot + theme(legend.position="none"),
           ncol=1, labels=c("A", "B"), rel_heights=c(1, 1.4))
-soc_nolett_leg <- get_legend(soc100_boxplot_nolett)
+soc_leg <- get_legend(soc100_boxplot)
 
-plot_grid(soc_nolett_grid, soc_nolett_leg, rel_widths = c(1, .23))
+plot_grid(soc_grid, soc_leg, rel_widths = c(1, .23))
 ```
 
 Takeaways:
@@ -286,7 +286,7 @@ Takeaways:
 
 ## Boxplots of SOC stock data calculated via ESM
 
-```{r fig_s1, echo=FALSE}
+```{r fig_s1}
 # ESM data contains many different ways to calculate - select only the SOC stocks calculated via standard depth increments, individual projects as reference soils, and using the minimum soil mass as a reference
 esm_standard_min <- esm_all %>%
   filter(depth_increments == "standard", ref_data =="indv_project",
@@ -390,7 +390,7 @@ Mean difference in SOC stocks between fixed depth and ESM is 9.5 Mg/ha (greater 
 
 ## Fig 3 - Ribbon plot of SOC stocks by depth (continuous):
 
-```{r fig_3, echo=FALSE}
+```{r fig_3}
 # Promote horizon data to SPC
 soc_spc <- soc_horizon
 depths(soc_spc) <- dsp_pedon_id ~ hrzdep_t + hrzdep_b
@@ -502,7 +502,7 @@ stock is significantly different from BAU and Ref groups.
 
 ## Plot results of mixed linear model
 
-```{r soc_lmer_plot, echo=FALSE}
+```{r soc_lmer_plot}
 # Plot predictions of 30cm SOC stocks under each treatment
 pred_stock30 <- ggpredict(soc_stock30_mixed, terms = c("label"))
 pred30 <- ggplot(pred_stock30, aes(x=x, y=predicted)) +
@@ -565,7 +565,7 @@ shape_soc_plot <- ggplot(shape_soc_stock, aes(x=soc_stock_100cm, y=score_mean_so
 
 Boxplots of SHAPE SOC scores:
 
-```{r fig_4, echo=FALSE}
+```{r fig_4}
 # Join in project data
 shape_spatial_proj <- shape_spatial %>%
   select(dsp_pedon_id, score_mean_soc, gt_90_soc) %>%

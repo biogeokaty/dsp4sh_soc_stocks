@@ -181,16 +181,60 @@ soc_pedon %>% slice_max(soc_stock_100cm, n = 1) %>%
 
 Plot boxplots of total SOC stocks under different management treatments:
 
+``` r
+soc_pedon_toplot <- soc_pedon %>%
+  filter(project!="TexasA&MPt-2") %>% # Exclude Texas A&M pt 2 because data was only collected to ~20 cm, so no stocks were calculated
+  mutate(label=factor(label, levels=c("BAU", "SHM", "Ref")))
+
+# Boxplot comparing total SOC stocks (100 cm) between treatments within soil types
+soc100_boxplot <- ggplot(soc_pedon_toplot, 
+                         aes(x=project, y=soc_stock_100cm, fill=label)) +
+  geom_boxplot() +
+  labs(x="Project", y="SOC stock to 100 cm depth (Mg/ha)") +
+  scale_x_discrete(labels=project_labels) +
+  scale_fill_manual(values=c("#FED789FF","#72874EFF","#476F84FF"),
+                     breaks=c("BAU", "SHM", "Ref"), 
+                    name="Management") +
+  theme_katy_grid() +
+  theme(axis.text.x = element_text(angle = 45, hjust=1))
+
+# Boxplot comparing total SOC stocks (30 cm) between treatments within soil types
+soc30_boxplot <- ggplot(soc_pedon_toplot, 
+                         aes(x=project, y=soc_stock_0_30cm, fill=label)) +
+  geom_boxplot() +
+  labs(x="Project", y="SOC stock to 30 cm depth (Mg/ha)") +
+  scale_x_discrete(labels=project_labels) +
+  scale_fill_manual(values=c("#FED789FF","#72874EFF","#476F84FF"),
+                     breaks=c("BAU", "SHM", "Ref"), 
+                    name="Management") +
+  theme_katy_grid() +
+  theme(axis.text.x = element_text(angle = 45, hjust=1))
+
+soc_grid <- plot_grid(soc30_boxplot + 
+                               theme(legend.position="none", axis.title.x=element_blank(), axis.text.x=element_blank()),
+          soc100_boxplot + theme(legend.position="none"),
+          ncol=1, labels=c("A", "B"), rel_heights=c(1, 1.4))
+```
+
     ## Warning: Removed 2 rows containing non-finite outside the scale range
     ## (`stat_boxplot()`).
 
     ## Warning: Removed 18 rows containing non-finite outside the scale range
     ## (`stat_boxplot()`).
-    ## Removed 18 rows containing non-finite outside the scale range
+
+``` r
+soc_leg <- get_legend(soc100_boxplot)
+```
+
+    ## Warning: Removed 18 rows containing non-finite outside the scale range
     ## (`stat_boxplot()`).
 
     ## Warning in get_plot_component(plot, "guide-box"): Multiple components found;
     ## returning the first one. To return all, use `return_all = TRUE`.
+
+``` r
+plot_grid(soc_grid, soc_leg, rel_widths = c(1, .23))
+```
 
 ![](dsp4sh_ref_states_figs_files/figure-gfm/fig_2-1.png)<!-- -->
 
@@ -208,11 +252,59 @@ Takeaways:
 
 ## Boxplots of SOC stock data calculated via ESM
 
+``` r
+# ESM data contains many different ways to calculate - select only the SOC stocks calculated via standard depth increments, individual projects as reference soils, and using the minimum soil mass as a reference
+esm_standard_min <- esm_all %>%
+  filter(depth_increments == "standard", ref_data =="indv_project",
+         method_long== "esm2_min")
+
+# Calculate total SOC stocks
+esm_standard_min_totals <- esm_standard_min %>%
+  group_by(project, label, dsp_pedon_id, depth_increments) %>%
+  summarize(soc_0to30 = sum(soc[apparent_depth=="0-10 cm" | apparent_depth=="10-30 cm"]),
+            soc_0to100 = sum(soc))
+```
+
     ## `summarise()` has grouped output by 'project', 'label', 'dsp_pedon_id'. You can
     ## override using the `.groups` argument.
 
+``` r
+# Boxplot comparing total SOC stocks (30 cm) between treatments within soil types
+soc30_esm_boxplot <- ggplot(esm_standard_min_totals, 
+                         aes(x=project, y=soc_0to30, fill=factor(label, levels=c("BAU", "SHM", "Ref")))) +
+  geom_boxplot() +
+  labs(x="Project", y="SOC stock to 30 cm depth (Mg/ha)") +
+  scale_x_discrete(labels=project_labels) +
+  scale_fill_manual(values=c("#FED789FF","#72874EFF","#476F84FF"),
+                     breaks=c("BAU", "SHM", "Ref"), 
+                    name="Management") +
+  theme_katy_grid() +
+  theme(axis.text.x = element_text(angle = 45, hjust=1))
+
+# Boxplot comparing total SOC stocks (100 cm) between treatments within soil types
+soc100_esm_boxplot <- ggplot(esm_standard_min_totals, 
+                         aes(x=project, y=soc_0to100, fill=factor(label, levels=c("BAU", "SHM", "Ref")))) +
+  geom_boxplot() +
+  labs(x="Project", y="SOC stock to 100 cm depth (Mg/ha)") +
+  scale_x_discrete(labels=project_labels) +
+  scale_fill_manual(values=c("#FED789FF","#72874EFF","#476F84FF"),
+                     breaks=c("BAU", "SHM", "Ref"), 
+                    name="Management") +
+  theme_katy_grid() +
+  theme(axis.text.x = element_text(angle = 45, hjust=1))
+
+soc_esm_grid <- plot_grid(soc30_esm_boxplot + theme(legend.position="none", axis.title.x=element_blank(), axis.text.x=element_blank()),
+          soc100_esm_boxplot + theme(legend.position="none"),
+          ncol=1, labels=c("A", "B"), rel_heights=c(1, 1.4))
+soc_esm_leg <- get_legend(soc100_esm_boxplot)
+```
+
     ## Warning in get_plot_component(plot, "guide-box"): Multiple components found;
     ## returning the first one. To return all, use `return_all = TRUE`.
+
+``` r
+plot_grid(soc_esm_grid, soc_esm_leg, rel_widths = c(1, .23))
+```
 
 ![](dsp4sh_ref_states_figs_files/figure-gfm/fig_s1-1.png)<!-- -->
 
@@ -292,6 +384,49 @@ Mean difference in SOC stocks between fixed depth and ESM is 9.5 Mg/ha
 (greater in fixed depth vs ESM), mean percent difference is 14.3%.
 
 ## Fig 3 - Ribbon plot of SOC stocks by depth (continuous):
+
+``` r
+# Promote horizon data to SPC
+soc_spc <- soc_horizon
+depths(soc_spc) <- dsp_pedon_id ~ hrzdep_t + hrzdep_b
+hzdesgnname(soc_spc) <- 'hzdesg'
+# promote project and label to site-level so they can be used as grouping variables
+site(soc_spc) <- ~ project + label + soil
+
+# Calculate stocks by depth increment for each project and management condition
+slab_ref <- aqp::slab(subset(soc_spc, label=="Ref"),
+                      fm = project ~ soc_stock_hrz,
+                      slab.structure = seq(0,100,by=10)) %>%
+  mutate(label="Ref")
+
+slab_shm <- aqp::slab(subset(soc_spc, label=="SHM"),
+                      fm = project ~ soc_stock_hrz,
+                      slab.structure = seq(0,100,by=10)) %>%
+  mutate(label="SHM")
+slab_bau <- aqp::slab(subset(soc_spc, label=="BAU"),
+                      fm = project ~ soc_stock_hrz,
+                      slab.structure = seq(0,100,by=10)) %>%
+  mutate(label="BAU")
+
+# Put management conditions together
+slab_mgmt <- bind_rows(slab_ref, slab_shm, slab_bau)
+
+# Plot with all mgmt together
+ggplot(slab_mgmt, aes(x=top, y=p.q50)) +
+  geom_line(linewidth=1.2, aes(color=label)) +
+  geom_ribbon(aes(ymin=p.q25, ymax=p.q75, x=top, fill=label), alpha=0.2) +
+  xlim(c(100,0)) +
+  coord_flip() +
+  labs(title="SOC Stocks by Depth", x="Depth (cm)", y="SOC (Mg/ha)") +
+  facet_wrap(~ project, scales = "free_x", labeller=labeller(project=project_labels)) +
+  scale_fill_manual(values=c("#FED789FF","#72874EFF","#476F84FF"),
+                     breaks=c("BAU", "SHM", "Ref"), 
+                    guide="none") +
+  scale_color_manual(values=c("#FED789FF","#72874EFF","#476F84FF"),
+                     breaks=c("BAU", "SHM", "Ref"), 
+                    name="Management") +
+  theme_katy()
+```
 
 ![](dsp4sh_ref_states_figs_files/figure-gfm/fig_3-1.png)<!-- -->
 
@@ -382,9 +517,9 @@ summary(soc_stock100_mixed_tukey)
     ## 
     ## Linear Hypotheses:
     ##                Estimate Std. Error z value Pr(>|z|)    
-    ## Ref - BAU == 0   36.910      8.221   4.490  < 1e-04 ***
-    ## SHM - BAU == 0    3.908      7.942   0.492 0.874900    
-    ## SHM - Ref == 0  -33.002      8.781  -3.758 0.000516 ***
+    ## Ref - BAU == 0   36.910      8.221   4.490   <1e-04 ***
+    ## SHM - BAU == 0    3.908      7.942   0.492   0.8749    
+    ## SHM - Ref == 0  -33.002      8.781  -3.758   0.0005 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## (Adjusted p values reported -- single-step method)
@@ -487,6 +622,28 @@ stock is significantly different from BAU and Ref groups.
 
 ## Plot results of mixed linear model
 
+``` r
+# Plot predictions of 30cm SOC stocks under each treatment
+pred_stock30 <- ggpredict(soc_stock30_mixed, terms = c("label"))
+pred30 <- ggplot(pred_stock30, aes(x=x, y=predicted)) +
+  geom_point() +
+  geom_errorbar(aes(x=x, ymin=conf.low, ymax=conf.high)) +
+  labs(x="Management", y="Predicted SOC stock to 30 cm (Mg/ha)") +
+  theme_katy_grid()
+
+# Plot predictions of 100cm SOC stocks under each treatment
+pred_stock100 <- ggpredict(soc_stock100_mixed, terms = c("label"))
+
+pred100 <- ggplot(pred_stock100, aes(x=x, y=predicted)) +
+  geom_point() +
+  geom_errorbar(aes(x=x, ymin=conf.low, ymax=conf.high)) +
+  labs(x="Management", y="Predicted SOC stock to 100 cm (Mg/ha)") +
+  theme_katy_grid()
+
+plot_grid(pred30, pred100,
+          ncol=1, labels=c("A", "B"))
+```
+
 ![](dsp4sh_ref_states_figs_files/figure-gfm/soc_lmer_plot-1.png)<!-- -->
 
 Takeaways:
@@ -552,6 +709,47 @@ shape_soc_plot <- ggplot(shape_soc_stock, aes(x=soc_stock_100cm, y=score_mean_so
 
 Boxplots of SHAPE SOC scores:
 
+``` r
+# Join in project data
+shape_spatial_proj <- shape_spatial %>%
+  select(dsp_pedon_id, score_mean_soc, gt_90_soc) %>%
+  left_join(select(project, dsp_plot_id, dsp_pedon_id, project, soil, label, trt, lu, till), by="dsp_pedon_id") %>%
+  mutate(shape_source = "spatial")
+
+# Boxplot showing SHAPE scores in different management categories, separated by project
+shape_boxplot_all <- ggplot(shape_spatial_proj, aes(x=project, y=score_mean_soc, fill=label)) +
+  geom_boxplot() +
+  geom_abline(intercept=0.90, slope=0, linetype="dashed") +
+  geom_abline(intercept=0.75, slope=0, linetype="dashed") +
+  labs(x="Project", y="SHAPE Score (Peer Group Percentile)") +
+  scale_x_discrete(labels=project_labels) +
+  scale_fill_manual(values=c("#FED789FF","#72874EFF","#476F84FF"),
+                    breaks=c("BAU", "SHM", "Ref"), 
+                    name="Management") +
+  theme_katy() +
+  theme(axis.text.x = element_text(angle = 45, hjust=1))
+
+# Boxplot showing SHAPE scores in different management categories (no separation by project)
+shape_boxplot_condensed <- ggplot(shape_spatial_proj, aes(x=factor(label, levels=c("BAU", "SHM", "Ref")), 
+                                                          y=score_mean_soc, 
+                      fill=factor(label, levels=c("BAU", "SHM", "Ref")))) +
+  geom_boxplot() +
+  geom_abline(intercept=0.90, slope=0, linetype="dashed") +
+  geom_abline(intercept=0.75, slope=0, linetype="dashed") +
+  labs(y="SHAPE Score (Peer Group Percentile)",
+       x="Management System") +
+  scale_fill_manual(values=c("#FED789FF","#72874EFF","#476F84FF"),
+                    breaks=c("BAU", "SHM", "Ref"), 
+                    name="Management") +
+  theme_katy() +
+  theme(plot.title=element_text(hjust=0.5), legend.position="none")
+
+# Panel figure of all SHAPE and consolidated SHAPE AND SOC stock
+shape_grid_bottom <- plot_grid(shape_boxplot_condensed + theme(legend.position="none"),
+          shape_soc_plot + theme(legend.position="none"),
+          ncol=2, labels=c("B", "C"))
+```
+
     ## Warning: Removed 13 rows containing non-finite outside the scale range
     ## (`stat_boxplot()`).
 
@@ -564,13 +762,28 @@ Boxplots of SHAPE SOC scores:
     ## Warning in is.na(x): is.na() applied to non-(list or vector) of type
     ## 'expression'
 
+``` r
+shape_grid <- plot_grid(shape_boxplot_all + theme(legend.position="none"),
+                        shape_grid_bottom,
+                        ncol=1, labels=c("A", ""), rel_heights=c(1.23, 1))
+```
+
     ## Warning: Removed 13 rows containing non-finite outside the scale range
     ## (`stat_boxplot()`).
-    ## Removed 13 rows containing non-finite outside the scale range
+
+``` r
+shape_leg <- get_legend(shape_boxplot_all)
+```
+
+    ## Warning: Removed 13 rows containing non-finite outside the scale range
     ## (`stat_boxplot()`).
 
     ## Warning in get_plot_component(plot, "guide-box"): Multiple components found;
     ## returning the first one. To return all, use `return_all = TRUE`.
+
+``` r
+plot_grid(shape_grid, shape_leg, rel_widths = c(1, 0.23))
+```
 
 ![](dsp4sh_ref_states_figs_files/figure-gfm/fig_4-1.png)<!-- -->
 
