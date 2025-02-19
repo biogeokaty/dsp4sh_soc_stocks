@@ -4,4 +4,6 @@ This repo contains the R code and most data needed to calculate total soil organ
 
 To run the code, you will also need to download the DSP4SH v.1.0 database (https://doi.org/10.15482/USDA.ADC/25122323.v1) and save in the /data_raw folder. 
 
-To clean data, calculate SOC stocks, and generate data files for downstream analysis, run code/01_main.R. To run analyses and generate tables and figures displayed in the manuscript, 
+* To clean data, calculate SOC stocks, and generate data files for downstream analysis, run code/01_main.R
+* To run analyses and generate tables and figures displayed in the manuscript, run code/dsp4sh_ref_states_figs.Rmd
+* To view report with tables and figures from manuscript, open code/dsp4sh_ref_states_figs.md
