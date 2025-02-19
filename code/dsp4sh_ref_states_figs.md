@@ -397,8 +397,8 @@ summary(soc_stock100_mixed_tukey)
     ## Linear Hypotheses:
     ##                Estimate Std. Error z value Pr(>|z|)    
     ## Ref - BAU == 0   36.910      8.221   4.490  < 1e-04 ***
-    ## SHM - BAU == 0    3.908      7.942   0.492 0.874907    
-    ## SHM - Ref == 0  -33.002      8.781  -3.758 0.000459 ***
+    ## SHM - BAU == 0    3.908      7.942   0.492 0.874901    
+    ## SHM - Ref == 0  -33.002      8.781  -3.758 0.000523 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## (Adjusted p values reported -- single-step method)
