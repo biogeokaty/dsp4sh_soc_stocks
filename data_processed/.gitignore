@@ -1,0 +1,14 @@
+02_coop_data_horizons_valid.csv
+03_coop_data_filled.csv
+04_soc_stock_horizon.csv
+04_soc_stock_pedon.csv
+05_eco_sites.csv
+05_meta_df.csv
+05_project_data.csv
+05_soc_horizon_clim.csv
+05_soc_horizon_filt.csv
+05_soc_pedon_clim.csv
+05_soc_pedon_filt.csv
+05_ssurgo_texture.csv
+05_surface_horizons.csv
+uconn_missing_depths.csv
