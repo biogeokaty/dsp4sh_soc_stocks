@@ -101,7 +101,7 @@ theme_katy_grid <- function(base_size=14) {
 
 ## Figure 1A - Dual-axis figure showing mean annual temperature and precipitation for each site
 
-```{r Figure 1A - dual-axis climate figure}
+```{r figure_1a}
 # Compile data
 clim <- soc_pedon %>%
   distinct(project, dsp_plot_id, label, mat, map) %>%
@@ -133,7 +133,7 @@ proj_tem_prep_clim
 
 Make the USDA soil texture triangle to overlay:
 
-```{r usda soil texture triangle overlay data}
+```{r usda_texture_triangle}
 
 # USDA dataset comes pre-loaded in ggtern package
 data(USDA)
@@ -165,7 +165,7 @@ USDA_text
 
 Now, plot the SSURGO data on the textural triangle:
 
-```{r make texture triangle plot with SSURGO data}
+```{r fig_1b}
 # Make a new column with both project and soil name for plotting
 project_labels_df <- data.frame(project_labels) %>%
   rownames_to_column() %>%
@@ -210,7 +210,7 @@ triangle_plot
 Mean, standard deviation, and n for SOC stocks calculated to 30 cm and
 100 cm for all soils in DSP4SH projects.
 
-```{r Table 1 - soc summary table}
+```{r table_1}
 soc_summary <- soc_pedon %>%
   group_by(project, soil, label) %>%
   summarize(across(soc_stock_0_30cm:soc_stock_100cm, mean_sd), n=n())
@@ -234,7 +234,7 @@ soc_pedon %>% slice_max(soc_stock_100cm, n = 1) %>%
 
 Plot boxplots of total SOC stocks under different management treatments:
 
-```{r Figure 2 - soc 100 cm and 30 cm stock boxplots, echo=FALSE}
+```{r fig_2, echo=FALSE}
 soc_pedon_toplot <- soc_pedon %>%
   filter(project!="TexasA&MPt-2") %>% # Exclude Texas A&M pt 2 because data was only collected to ~20 cm, so no stocks were calculated
   mutate(label=factor(label, levels=c("BAU", "SHM", "Ref")))
@@ -250,7 +250,6 @@ soc100_boxplot_nolett <- ggplot(soc_pedon_toplot,
                     name="Management") +
   theme_katy_grid() +
   theme(axis.text.x = element_text(angle = 45, hjust=1))
-soc100_boxplot_nolett
 
 # Boxplot comparing total SOC stocks (30 cm) between treatments within soil types
 soc30_boxplot_nolett <- ggplot(soc_pedon_toplot, 
@@ -263,13 +262,11 @@ soc30_boxplot_nolett <- ggplot(soc_pedon_toplot,
                     name="Management") +
   theme_katy_grid() +
   theme(axis.text.x = element_text(angle = 45, hjust=1))
-soc30_boxplot_nolett
 
 soc_nolett_grid <- plot_grid(soc30_boxplot_nolett + 
                                theme(legend.position="none", axis.title.x=element_blank(), axis.text.x=element_blank()),
           soc100_boxplot_nolett + theme(legend.position="none"),
           ncol=1, labels=c("A", "B"), rel_heights=c(1, 1.4))
-soc_nolett_grid
 soc_nolett_leg <- get_legend(soc100_boxplot_nolett)
 
 plot_grid(soc_nolett_grid, soc_nolett_leg, rel_widths = c(1, .23))
@@ -289,7 +286,7 @@ Takeaways:
 
 ## Boxplots of SOC stock data calculated via ESM
 
-```{r Figure S1 - soc 100 cm and 30 cm stock boxplots calculated via ESM, echo=FALSE}
+```{r fig_s1, echo=FALSE}
 # ESM data contains many different ways to calculate - select only the SOC stocks calculated via standard depth increments, individual projects as reference soils, and using the minimum soil mass as a reference
 esm_standard_min <- esm_all %>%
   filter(depth_increments == "standard", ref_data =="indv_project",
@@ -312,7 +309,6 @@ soc30_esm_boxplot <- ggplot(esm_standard_min_totals,
                     name="Management") +
   theme_katy_grid() +
   theme(axis.text.x = element_text(angle = 45, hjust=1))
-soc30_esm_boxplot
 
 # Boxplot comparing total SOC stocks (100 cm) between treatments within soil types
 soc100_esm_boxplot <- ggplot(esm_standard_min_totals, 
@@ -325,7 +321,6 @@ soc100_esm_boxplot <- ggplot(esm_standard_min_totals,
                     name="Management") +
   theme_katy_grid() +
   theme(axis.text.x = element_text(angle = 45, hjust=1))
-soc100_esm_boxplot
 
 soc_esm_grid <- plot_grid(soc30_esm_boxplot + theme(legend.position="none", axis.title.x=element_blank(), axis.text.x=element_blank()),
           soc100_esm_boxplot + theme(legend.position="none"),
@@ -337,7 +332,7 @@ plot_grid(soc_esm_grid, soc_esm_leg, rel_widths = c(1, .23))
 
 ## Comparison of ESM results to fixed depth results
 
-```{r Figure S2 - comparison of ESM to fixed depth results}
+```{r fig_s2}
 esm_standard_min_totals_long <- esm_standard_min_totals %>%
   pivot_longer(soc_0to30:soc_0to100, names_to="depth", values_to="soc_stock") %>%
   select(-depth_increments) %>%
@@ -370,7 +365,7 @@ ggplot(soc_fixed_esm, aes(x=label, y=soc_stock, fill=calc_method)) +
 
 Table of difference in SOC stocks calculated via fixed depth vs. ESM:
 
-```{r Table S1 - table of fixed depth vs ESM stock results}
+```{r table_s1}
 # Calculate differences
 soc_stock_comparison <- soc_fixed_esm %>%
   pivot_wider(names_from="calc_method", values_from="soc_stock") %>%
@@ -395,7 +390,7 @@ Mean difference in SOC stocks between fixed depth and ESM is 9.5 Mg/ha (greater 
 
 ## Fig 3 - Ribbon plot of SOC stocks by depth (continuous):
 
-```{r Fig 3 - ribbon plot of SOC stocks with depth, echo=FALSE}
+```{r fig_3, echo=FALSE}
 # Promote horizon data to SPC
 soc_spc <- soc_horizon
 depths(soc_spc) <- dsp_pedon_id ~ hrzdep_t + hrzdep_b
@@ -507,7 +502,7 @@ stock is significantly different from BAU and Ref groups.
 
 ## Plot results of mixed linear model
 
-```{r plot results of mixed linear model to 30 and 100 cm, echo=FALSE}
+```{r soc_lmer_plot, echo=FALSE}
 # Plot predictions of 30cm SOC stocks under each treatment
 pred_stock30 <- ggpredict(soc_stock30_mixed, terms = c("label"))
 pred30 <- ggplot(pred_stock30, aes(x=x, y=predicted)) +
@@ -566,12 +561,11 @@ shape_soc_plot <- ggplot(shape_soc_stock, aes(x=soc_stock_100cm, y=score_mean_so
                     breaks=c("BAU", "SHM", "Ref"), 
                     name="Management") +
   theme_katy()
-shape_soc_plot
 ```
 
 Boxplots of SHAPE SOC scores:
 
-```{r Fig 4 - panel figure showing boxplot of SHAPE scores and regression with stocks, echo=FALSE}
+```{r fig_4, echo=FALSE}
 # Join in project data
 shape_spatial_proj <- shape_spatial %>%
   select(dsp_pedon_id, score_mean_soc, gt_90_soc) %>%
@@ -590,7 +584,6 @@ shape_boxplot_all <- ggplot(shape_spatial_proj, aes(x=project, y=score_mean_soc,
                     name="Management") +
   theme_katy() +
   theme(axis.text.x = element_text(angle = 45, hjust=1))
-shape_boxplot_all
 
 # Boxplot showing SHAPE scores in different management categories (no separation by project)
 shape_boxplot_condensed <- ggplot(shape_spatial_proj, aes(x=factor(label, levels=c("BAU", "SHM", "Ref")), 
@@ -606,7 +599,6 @@ shape_boxplot_condensed <- ggplot(shape_spatial_proj, aes(x=factor(label, levels
                     name="Management") +
   theme_katy() +
   theme(plot.title=element_text(hjust=0.5), legend.position="none")
-shape_boxplot_condensed
 
 # Panel figure of all SHAPE and consolidated SHAPE AND SOC stock
 shape_grid_bottom <- plot_grid(shape_boxplot_condensed + theme(legend.position="none"),
@@ -651,7 +643,7 @@ eco_sites_shape <- eco_sites %>%
 
 Plot SHAPE scores and SOC% corresponding to different ecological states for project that correlated sampling sites with ecological states - UTRGV is the only project that did this.
 
-```{r Figure 5 - shape vs SOC for eco states}
+```{r fig_5}
 # Compile data - need surface SOC%
 utrgv_soc_surf <- surf %>%
   select(project, dsp_pedon_id, soc_pct) %>%

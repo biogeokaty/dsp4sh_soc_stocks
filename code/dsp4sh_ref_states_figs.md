@@ -35,7 +35,7 @@ proj_tem_prep_clim <- ggplot(clim, aes(x = project)) +
 proj_tem_prep_clim
 ```
 
-![](dsp4sh_ref_states_figs_files/figure-gfm/Figure%201A%20-%20dual-axis%20climate%20figure-1.png)<!-- -->
+![](dsp4sh_ref_states_figs_files/figure-gfm/figure_1a-1.png)<!-- -->
 
 ## Figure 1B - Soil texture triangle showing mean SSURGO texture in top horizon for each project
 
@@ -126,7 +126,7 @@ triangle_plot <- ggtern(ssurgo_texture2, aes(x=sand_pct, y=clay_pct, z=silt_pct,
 triangle_plot
 ```
 
-![](dsp4sh_ref_states_figs_files/figure-gfm/make%20texture%20triangle%20plot%20with%20SSURGO%20data-1.png)<!-- -->
+![](dsp4sh_ref_states_figs_files/figure-gfm/fig_1b-1.png)<!-- -->
 
 # Summary Figures of SOC Stocks
 
@@ -148,7 +148,7 @@ soc_summary <- soc_pedon %>%
 flextable(soc_summary)
 ```
 
-<img src="dsp4sh_ref_states_figs_files/figure-gfm/Table 1 - soc summary table-1.png" width="3708" />
+<img src="dsp4sh_ref_states_figs_files/figure-gfm/table_1-1.png" width="3708" />
 
 ``` r
 # range in SOC values
@@ -157,7 +157,7 @@ soc_min_max <- soc_pedon %>%
 flextable(soc_min_max)
 ```
 
-<img src="dsp4sh_ref_states_figs_files/figure-gfm/Table 1 - soc summary table-2.png" width="3096" />
+<img src="dsp4sh_ref_states_figs_files/figure-gfm/table_1-2.png" width="3096" />
 
 ``` r
 # which is the min?
@@ -181,30 +181,18 @@ soc_pedon %>% slice_max(soc_stock_100cm, n = 1) %>%
 
 Plot boxplots of total SOC stocks under different management treatments:
 
+    ## Warning: Removed 2 rows containing non-finite outside the scale range
+    ## (`stat_boxplot()`).
+
     ## Warning: Removed 18 rows containing non-finite outside the scale range
-    ## (`stat_boxplot()`).
-
-![](dsp4sh_ref_states_figs_files/figure-gfm/Figure%202%20-%20soc%20100%20cm%20and%2030%20cm%20stock%20boxplots-1.png)<!-- -->
-
-    ## Warning: Removed 2 rows containing non-finite outside the scale range
-    ## (`stat_boxplot()`).
-
-![](dsp4sh_ref_states_figs_files/figure-gfm/Figure%202%20-%20soc%20100%20cm%20and%2030%20cm%20stock%20boxplots-2.png)<!-- -->
-
-    ## Warning: Removed 2 rows containing non-finite outside the scale range
     ## (`stat_boxplot()`).
     ## Removed 18 rows containing non-finite outside the scale range
-    ## (`stat_boxplot()`).
-
-![](dsp4sh_ref_states_figs_files/figure-gfm/Figure%202%20-%20soc%20100%20cm%20and%2030%20cm%20stock%20boxplots-3.png)<!-- -->
-
-    ## Warning: Removed 18 rows containing non-finite outside the scale range
     ## (`stat_boxplot()`).
 
     ## Warning in get_plot_component(plot, "guide-box"): Multiple components found;
     ## returning the first one. To return all, use `return_all = TRUE`.
 
-![](dsp4sh_ref_states_figs_files/figure-gfm/Figure%202%20-%20soc%20100%20cm%20and%2030%20cm%20stock%20boxplots-4.png)<!-- -->
+![](dsp4sh_ref_states_figs_files/figure-gfm/fig_2-1.png)<!-- -->
 
 Takeaways:
 
@@ -223,12 +211,10 @@ Takeaways:
     ## `summarise()` has grouped output by 'project', 'label', 'dsp_pedon_id'. You can
     ## override using the `.groups` argument.
 
-![](dsp4sh_ref_states_figs_files/figure-gfm/Figure%20S1%20-%20soc%20100%20cm%20and%2030%20cm%20stock%20boxplots%20calculated%20via%20ESM-1.png)<!-- -->![](dsp4sh_ref_states_figs_files/figure-gfm/Figure%20S1%20-%20soc%20100%20cm%20and%2030%20cm%20stock%20boxplots%20calculated%20via%20ESM-2.png)<!-- -->
-
     ## Warning in get_plot_component(plot, "guide-box"): Multiple components found;
     ## returning the first one. To return all, use `return_all = TRUE`.
 
-![](dsp4sh_ref_states_figs_files/figure-gfm/Figure%20S1%20-%20soc%20100%20cm%20and%2030%20cm%20stock%20boxplots%20calculated%20via%20ESM-3.png)<!-- -->
+![](dsp4sh_ref_states_figs_files/figure-gfm/fig_s1-1.png)<!-- -->
 
 ## Comparison of ESM results to fixed depth results
 
@@ -266,7 +252,7 @@ ggplot(soc_fixed_esm, aes(x=label, y=soc_stock, fill=calc_method)) +
     ## Warning: Removed 56 rows containing non-finite outside the scale range
     ## (`stat_boxplot()`).
 
-![](dsp4sh_ref_states_figs_files/figure-gfm/Figure%20S2%20-%20comparison%20of%20ESM%20to%20fixed%20depth%20results-1.png)<!-- -->
+![](dsp4sh_ref_states_figs_files/figure-gfm/fig_s2-1.png)<!-- -->
 
 Table of difference in SOC stocks calculated via fixed depth vs. ESM:
 
@@ -289,7 +275,7 @@ soc_stock_comparison <- soc_fixed_esm %>%
 flextable(soc_stock_comparison)
 ```
 
-<img src="dsp4sh_ref_states_figs_files/figure-gfm/Table S1 - table of fixed depth vs ESM stock results-1.png" width="1407" />
+<img src="dsp4sh_ref_states_figs_files/figure-gfm/table_s1-1.png" width="1407" />
 
 ``` r
 soc_stock_comparison_summary <- soc_stock_comparison %>%
@@ -300,14 +286,14 @@ soc_stock_comparison_summary <- soc_stock_comparison %>%
 flextable(soc_stock_comparison_summary)
 ```
 
-<img src="dsp4sh_ref_states_figs_files/figure-gfm/Table S1 - table of fixed depth vs ESM stock results-2.png" width="604" />
+<img src="dsp4sh_ref_states_figs_files/figure-gfm/table_s1-2.png" width="604" />
 
 Mean difference in SOC stocks between fixed depth and ESM is 9.5 Mg/ha
 (greater in fixed depth vs ESM), mean percent difference is 14.3%.
 
 ## Fig 3 - Ribbon plot of SOC stocks by depth (continuous):
 
-![](dsp4sh_ref_states_figs_files/figure-gfm/Fig%203%20-%20ribbon%20plot%20of%20SOC%20stocks%20with%20depth-1.png)<!-- -->
+![](dsp4sh_ref_states_figs_files/figure-gfm/fig_3-1.png)<!-- -->
 
 Takeaways:
 
@@ -397,8 +383,8 @@ summary(soc_stock100_mixed_tukey)
     ## Linear Hypotheses:
     ##                Estimate Std. Error z value Pr(>|z|)    
     ## Ref - BAU == 0   36.910      8.221   4.490  < 1e-04 ***
-    ## SHM - BAU == 0    3.908      7.942   0.492 0.874901    
-    ## SHM - Ref == 0  -33.002      8.781  -3.758 0.000523 ***
+    ## SHM - BAU == 0    3.908      7.942   0.492 0.874900    
+    ## SHM - Ref == 0  -33.002      8.781  -3.758 0.000516 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## (Adjusted p values reported -- single-step method)
@@ -501,7 +487,7 @@ stock is significantly different from BAU and Ref groups.
 
 ## Plot results of mixed linear model
 
-![](dsp4sh_ref_states_figs_files/figure-gfm/plot%20results%20of%20mixed%20linear%20model%20to%2030%20and%20100%20cm-1.png)<!-- -->
+![](dsp4sh_ref_states_figs_files/figure-gfm/soc_lmer_plot-1.png)<!-- -->
 
 Takeaways:
 
@@ -562,31 +548,9 @@ shape_soc_plot <- ggplot(shape_soc_stock, aes(x=soc_stock_100cm, y=score_mean_so
                     breaks=c("BAU", "SHM", "Ref"), 
                     name="Management") +
   theme_katy()
-shape_soc_plot
 ```
 
-    ## Warning: Removed 48 rows containing non-finite outside the scale range
-    ## (`stat_smooth()`).
-
-    ## Warning: Removed 48 rows containing missing values or values outside the scale range
-    ## (`geom_point()`).
-
-    ## Warning in is.na(x): is.na() applied to non-(list or vector) of type
-    ## 'expression'
-
-![](dsp4sh_ref_states_figs_files/figure-gfm/plot%20SHAPE%20scores%20vs%20carbon%20stocks-1.png)<!-- -->
-
 Boxplots of SHAPE SOC scores:
-
-    ## Warning: Removed 13 rows containing non-finite outside the scale range
-    ## (`stat_boxplot()`).
-
-![](dsp4sh_ref_states_figs_files/figure-gfm/Fig%204%20-%20panel%20figure%20showing%20boxplot%20of%20SHAPE%20scores%20and%20regression%20with%20stocks-1.png)<!-- -->
-
-    ## Warning: Removed 13 rows containing non-finite outside the scale range
-    ## (`stat_boxplot()`).
-
-![](dsp4sh_ref_states_figs_files/figure-gfm/Fig%204%20-%20panel%20figure%20showing%20boxplot%20of%20SHAPE%20scores%20and%20regression%20with%20stocks-2.png)<!-- -->
 
     ## Warning: Removed 13 rows containing non-finite outside the scale range
     ## (`stat_boxplot()`).
@@ -608,7 +572,7 @@ Boxplots of SHAPE SOC scores:
     ## Warning in get_plot_component(plot, "guide-box"): Multiple components found;
     ## returning the first one. To return all, use `return_all = TRUE`.
 
-![](dsp4sh_ref_states_figs_files/figure-gfm/Fig%204%20-%20panel%20figure%20showing%20boxplot%20of%20SHAPE%20scores%20and%20regression%20with%20stocks-3.png)<!-- -->
+![](dsp4sh_ref_states_figs_files/figure-gfm/fig_4-1.png)<!-- -->
 
 Overall, the SHAPE scores support the Ref/SHM/BAU groupings:
 
@@ -676,7 +640,7 @@ ggplot(shape_soc_utrgv, aes(x=ecological_state,
         strip.placement = "outside")
 ```
 
-![](dsp4sh_ref_states_figs_files/figure-gfm/Figure%205%20-%20shape%20vs%20SOC%20for%20eco%20states-1.png)<!-- -->
+![](dsp4sh_ref_states_figs_files/figure-gfm/fig_5-1.png)<!-- -->
 
 The tricky thing here is that woodland state is not actually the
 reference state for this ecological site - the reference state is
