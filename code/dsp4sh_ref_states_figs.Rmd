@@ -35,8 +35,6 @@ library(tidyverse)
 # Load data
 soc_pedon <- read.csv(here("data_processed", "05_soc_pedon_clim.csv"))
 soc_horizon <- read.csv(here("data_processed", "05_soc_horizon_clim.csv"))
-soc_pedon_filt <- read.csv(here("data_processed", "05_soc_pedon_filt.csv"))
-soc_horizon_filt <- read.csv(here("data_processed", "05_soc_horizon_filt.csv"))
 surf <- read.csv(here("data_processed", "05_surface_horizons.csv"))
 project <- read.csv(here("data_processed", "05_project_data.csv"))
 eco_sites <- read.csv(here("data_processed", "05_eco_sites.csv"))
@@ -291,9 +289,6 @@ Takeaways:
 
 -   Differences between SHM and BAU are infrequently observed
 
-Plot alternate version with significance letters ungrouped (not shown
-because it is difficult to interpret):
-
 ## Boxplots of SOC stock data calculated via ESM
 
 ```{r Figure S1 - soc 100 cm and 30 cm stock boxplots calculated via ESM, echo=FALSE}
@@ -337,11 +332,11 @@ soc100_esm_boxplot
 soc_esm_grid <- plot_grid(soc30_esm_boxplot + theme(legend.position="none", axis.title.x=element_blank(), axis.text.x=element_blank()),
           soc100_esm_boxplot + theme(legend.position="none"),
           ncol=1, labels=c("A", "B"), rel_heights=c(1, 1.4))
-soc_esm_grid
 soc_esm_leg <- get_legend(soc100_esm_boxplot)
 
 plot_grid(soc_esm_grid, soc_esm_leg, rel_widths = c(1, .23))
 ```
+
 ## Comparison of ESM results to fixed depth results
 
 ```{r Figure S2 - comparison of ESM to fixed depth results}
@@ -693,14 +688,3 @@ ggplot(shape_soc_utrgv, aes(x=ecological_state,
 ```
 
 The tricky thing here is that woodland state is not actually the reference state for this ecological site - the reference state is savannah!
-
-## Treatment table for eco sites
-
-Make a table showing all treatments - ecological sites and states can be added to this:
-
-```{r Table S2 - treatment table}
-treatment_table <- project %>%
-  select(project, label, lu, till, trt) %>%
-  distinct()
-flextable(treatment_table)
-```

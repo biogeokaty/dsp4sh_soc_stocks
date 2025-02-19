@@ -1,9 +1,14 @@
 # Checking profile validity for new DSP4SH data
-# Katy DYnarski, March 2024
+# Katy Dynarski, March 2024
 
-# This script constructs a SoilProfileCollection object for each project in the DSP4SH dataset, checks horizon logic, corrects any issues in the data, adds generalized horizon labels to the SPC, builds a corrected dataframe for each project, and re-joins to make a final, corrected dataframe 
+# This script constructs a SoilProfileCollection object for each project in the DSP4SH dataset, checks horizon logic, corrects any issues in the data, adds generalized horizon labels to the SPC, builds a corrected dataframe for each project, and re-joins to make a final, corrected dataframe .
 
-# 0 - Load data and identify project list ####
+# 0 - Load packages and data ####
+library(here)
+library(janitor)
+library(aqp)
+library(tidyverse)
+
 coop_data <- read.csv(here("data_raw", "dsp4sh_soc_df_KAD.csv")) %>%
   clean_names()
 projects <- coop_data %>%

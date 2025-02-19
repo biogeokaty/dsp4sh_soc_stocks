@@ -1,7 +1,9 @@
 # Calculating SOC stocks at specific, common depth increments across many soil profiles
 # Katy Dynarski, March 2024
 
-# 0 - Load packages and import data ----
+# This script calculates SOC stocks in 0-30 cm, 30-50 cm, and 50-100 cm depth increments for all DSP4SH pedons with valid horizons, as well as total SOC stocks from 0-100 cm for those pedons
+
+# 0 - Load packages and data ----
 library(aqp)
 library(tidyverse)
 
@@ -34,8 +36,7 @@ coop_soc <- horizons(coop_dice) %>%
 
 # 2 - Calculate sums for 0-30 cm, 30-50 cm, and 50-100 cm depth increments ----
 
-# I subsetted the data into 0-30 cm, 30-50 cm, and 50-100 cm dataframes, calculated the sum of SOC stock for each, and then re-joined the data back together
-# There may be a more efficient way to do this :)
+# Subset the data into 0-30 cm, 30-50 cm, and 50-100 cm dataframes, calculated the sum of SOC stock for each, and then re-joined the data back together
 
 # 0-30 cm depth sum
 soc_tot_30 <- coop_soc %>%

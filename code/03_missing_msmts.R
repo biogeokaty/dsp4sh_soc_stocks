@@ -1,11 +1,11 @@
 # 03 - Identifying missing lab and field measurements
 # Katy Dynarski, March 2024
 
-# This script identifies horizons with missing SOC, bulk density, or coarse fragments data (which are all necessary to calculate SOC stocks) and fills that data in to minimize data loss (i.e. having to throw out entire soil profiles because one horizon is missing a measurement). Missing values for a horizon are typically filled with the average value for a generalized horizon within that particular combination of treatment and project
+# This script identifies horizons with missing SOC, bulk density, or coarse fragments data (which are all necessary to calculate SOC stocks) and fills that data in to minimize data loss (i.e. having to throw out entire soil profiles because one horizon is missing a measurement). Missing values for a horizon are typically filled with the average value for a generalized horizon within that particular combination of treatment and project.
 
 # Working off of a dataframe Ekundayo put together that fills in missing cooperator SOC values with KSSL SOC - the combined values are in a column called "soc_pct_mod"
 
-# 0 - Load libraries and import data ----
+# 0 - Load packages and data ----
 library(aqp)
 library(here)
 library(zoo)
@@ -85,6 +85,10 @@ coop_data_soc_filled %>%
 no_bd <- coop_data %>%
   filter(is.na(bulk_density))
 # Many samples are missing bulk density measurements - 221!
+
+# n per project
+no_bd %>%
+  count(project)
 
 # In some projects, it looks like only the deepest soils in a pedon are missing BD measurements. In other cases, it looks like whole pedons did not have BD measurements collected.
 

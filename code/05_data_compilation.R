@@ -1,8 +1,19 @@
-# Data wrangling
+# Data compilation for analysis
+# Katy Dynarski, March 2024
 
 # This script contains code to make the different dataframes that will be used in downstream analyses
 
-# 0 - Import data ----
+# 0 - Load packages and data ----
+library(here)
+library(DBI)
+library(RSQLite)
+library(zoo)
+library(janitor)
+library(aqp)
+library(soilDB)
+library(sf)
+library(tidyverse)
+
 soc_pedon <- read.csv(here("data_processed", "04_soc_stock_pedon.csv"))
 soc_horizon <- read.csv(here("data_processed", "04_soc_stock_horizon.csv"))
 prism <- read.csv(here("data_processed", "dsp4sh_soc_prism3.csv"))
