@@ -25,6 +25,8 @@ library(ggspatial)
 library(ggeasy)
 library(ggpubr)
 library(ggtern)
+library(png)
+library(magick)
 library(soiltexture)
 library(paletteer)
 library(cowplot)
@@ -120,7 +122,7 @@ proj_tem_prep_clim <- ggplot(clim, aes(x = project)) +
   scale_y_continuous(
     name = "Mean Annual Precipitation (mm)",
     sec.axis = sec_axis(~ . / 40, name = "Mean Annual Temperature (°C)")) + # Adjust scale factor
-  theme_katy() +
+  theme_katy(base_size=12) +
   theme(axis.title.y=element_text(color="#1E8E99FF"),
         axis.title.y.right=element_text(color="#CC5800FF"),
         axis.text.x=element_text(angle=45, hjust=1),
@@ -201,6 +203,21 @@ triangle_plot <- ggtern(ssurgo_texture2, aes(x=sand_pct, y=clay_pct, z=silt_pct,
   theme_clockwise() +
   scale_color_paletteer_d("rcartocolor::Safe", name="Project & Soil Series")
 triangle_plot
+```
+
+```{r Figure 1}
+# Put two panels together
+
+# ggtern does not play well with cowplot - so call in the texture triangle figure as a PNG file and add to a grid with a blank space
+tt_file <- readPNG(here("figs", "ref_states_figs", "fig1b_ssurgo_texture.png"))
+
+fig1_grid_space <- plot_grid(proj_tem_prep_clim, NULL,
+                          nrow=2, rel_heights=c(1,1),
+                          labels=c("A", "B"))
+fig1 <- ggdraw(fig1_grid_space) +
+  draw_image(tt_file, x=0, y=0, vjust=0.23)
+
+fig1
 ```
 
 # Summary Figures of SOC Stocks
