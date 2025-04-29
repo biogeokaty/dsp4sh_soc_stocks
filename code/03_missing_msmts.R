@@ -19,7 +19,13 @@ coop_spc <- coop_data
 # 1 - SOC% - Identify missing data ----
 no_soc <- coop_data %>%
   filter(is.na(soc_pct_mod))
+no_soc %>%
+  filter(project!="TexasA&MPt-2") %>%
+  select(project, label, dsp_pedon_id, hzdesg, hrzdep_t, hrzdep_b, soc_pct_mod, bulk_density)
 # 27 samples missing SOC% (most of them are from the Texas A&M project where SOC was only measured at KSSL)
+
+# percent of horizons where SOC was filled
+3/nrow(coop_data)
 
 # Promote to Soil Profile Collection to take a look at the profiles
 depths(coop_spc) <- dsp_pedon_id ~ hrzdep_t + hrzdep_b
@@ -89,6 +95,8 @@ no_bd <- coop_data %>%
 # n per project
 no_bd %>%
   count(project)
+
+(70+5+4+6+1+36)/nrow(coop_data)*100
 
 # In some projects, it looks like only the deepest soils in a pedon are missing BD measurements. In other cases, it looks like whole pedons did not have BD measurements collected.
 

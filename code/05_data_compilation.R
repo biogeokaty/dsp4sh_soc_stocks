@@ -51,7 +51,7 @@ kssl <- db$kssllabmst %>%
   clean_names()
 
 clay <- kssl %>%
-  select(natural_key, clay_tot_psa, silt_tot_psa, sand_tot_psa, tex_psda) %>%
+  select(natural_key, clay_tot_psa, silt_tot_psa, sand_tot_psa, tex_psda, ph_h2o) %>%
   rename(kssl_labsampnum = natural_key)
 
 # 3 - Attach climate data to pedon and horizon data ----
@@ -100,9 +100,15 @@ write_csv(soc_horizon_filt, here("data_processed", "05_soc_horizon_filt.csv"))
 surf_all <- horizon_clim %>%
   filter(hrzdep_b == "5" | hrzdep_b=="10") %>%
   group_by(dsp_pedon_id) %>%
-  summarize(across(c(soc_pct,bulk_density, tn_pct:yoder_agg_stab_mwd, p_h:ace, clay_tot_psa), mean)) %>%
+  summarize(across(c(soc_pct,bulk_density, tn_pct:yoder_agg_stab_mwd, p_h:ace, clay_pct, clay_tot_psa, ph_h2o), mean)) %>%
   left_join(select(site_clim, dsp_pedon_id, mat, map, climate), by="dsp_pedon_id") %>%
-  left_join(select(project_dat, dsp_pedon_id:site), by="dsp_pedon_id")
+  left_join(select(project_dat, dsp_pedon_id:site), by="dsp_pedon_id") %>%
+  mutate(clay_combined = ifelse(is.na(clay_pct), clay_tot_psa, clay_pct),
+         clay_src = ifelse(is.na(clay_pct), 
+                           ifelse(is.na(clay_tot_psa), "NA", "kssl"), "coop"),
+         ph_combined = ifelse(is.na(p_h), ph_h2o, p_h),
+         ph_src = ifelse(is.na(p_h), 
+                           ifelse(is.na(ph_h2o), "NA", "kssl"), "coop"))
   
 write_csv(surf_all, here("data_processed", "05_surface_horizons.csv"))
 # What this data should be used for: analyzing sensitivity of indicators in surface horizons
@@ -111,7 +117,7 @@ write_csv(surf_all, here("data_processed", "05_surface_horizons.csv"))
 # want to use this to calculate response ratios :)
 surf_sub <- surf_all %>%
   select(dsp_pedon_id, soc_pct, 
-         bulk_density, tn_pct:yoder_agg_stab_mwd, p_h:ace, clay_tot_psa)
+         bulk_density, tn_pct:yoder_agg_stab_mwd, p_h:ace, clay_combined, clay_src)
 
 meta_df <- pedon_clim %>%
   left_join(surf_sub, by=c("dsp_pedon_id"))
