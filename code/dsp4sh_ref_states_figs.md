@@ -1,21 +1,11 @@
----
-title: "DSP4SH Reference States - Manuscript Figures and Tables"
-author: "Katy Dynarski"
-date: "2024-08-07"
-output: 
-  html_document: 
-    keep_md: yes
-editor_options: 
-  markdown: 
-    wrap: 72
----
-
-
+DSP4SH Reference States - Manuscript Figures and Tables
+================
+Katy Dynarski
+2024-08-07
 
 # Overview of DSP4SH Climate and Soil Texture
 
 ## Figure 1A - Dual-axis figure showing mean annual temperature and precipitation for each site
-
 
 ``` r
 # Compile data
@@ -46,7 +36,7 @@ proj_tem_prep_clim <- ggplot(clim, aes(x = project)) +
 proj_tem_prep_clim
 ```
 
-![](dsp4sh_ref_states_figs_files/figure-html/fig 1a-1.png)<!-- -->
+![](dsp4sh_ref_states_figs_files/figure-gfm/fig%201a-1.png)<!-- -->
 
 ``` r
 ggsave(here("figs", "fig1a_climate_2_axis.tiff"), width=120, height=100, units="mm", dpi=500)
@@ -60,7 +50,6 @@ ggsave(here("figs", "fig1a_climate_2_axis.tiff"), width=120, height=100, units="
 ## Figure 1B - Soil texture triangle showing mean SSURGO texture in top horizon for each project
 
 Make the USDA soil texture triangle to overlay:
-
 
 ``` r
 # USDA dataset comes pre-loaded
@@ -91,7 +80,6 @@ USDA_text <- USDA  %>%
 ```
 
 Now, plot the SSURGO data on the textural triangle:
-
 
 ``` r
 # Make a new column with both project and soil name for plotting
@@ -131,12 +119,11 @@ triangle_plot <- ggtern::ggtern(ssurgo_texture2, aes(x=sand_pct, y=clay_pct, z=s
 triangle_plot
 ```
 
-![](dsp4sh_ref_states_figs_files/figure-html/fig 1b-1.png)<!-- -->
+![](dsp4sh_ref_states_figs_files/figure-gfm/fig%201b-1.png)<!-- -->
 
 ``` r
 ggsave(here("figs", "fig1b_ssurgo_texture.png"), width=7, height=4, units="in", dpi=400)
 ```
-
 
 ``` r
 # Put two panels together
@@ -153,9 +140,9 @@ fig1 <- ggdraw(fig1_grid_space) +
 fig1
 ```
 
-![](dsp4sh_ref_states_figs_files/figure-html/fig1-1.png)<!-- -->
+![](dsp4sh_ref_states_figs_files/figure-gfm/fig1-1.png)<!-- -->
 
-## Summary of site data and sampling information for methods 
+## Summary of site data and sampling information for methods
 
 ### Site data summary
 
@@ -171,9 +158,7 @@ site_range_table <- project %>%
 flextable(site_range_table)
 ```
 
-```{=html}
-<div class="tabwid"><style>.cl-1d9276b0{}.cl-1d89d514{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-1d8d5b76{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-1d8d6d82{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1d8d6d83{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1d8d6d8c{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-1d9276b0'><thead><tr style="overflow-wrap:break-word;"><th class="cl-1d8d6d82"><p class="cl-1d8d5b76"><span class="cl-1d89d514">name</span></p></th><th class="cl-1d8d6d82"><p class="cl-1d8d5b76"><span class="cl-1d89d514">value</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-1d8d6d83"><p class="cl-1d8d5b76"><span class="cl-1d89d514">lat_range</span></p></td><td class="cl-1d8d6d83"><p class="cl-1d8d5b76"><span class="cl-1d89d514">26.31-46.79</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1d8d6d83"><p class="cl-1d8d5b76"><span class="cl-1d89d514">long_range</span></p></td><td class="cl-1d8d6d83"><p class="cl-1d8d5b76"><span class="cl-1d89d514">-123.42--72.19</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1d8d6d83"><p class="cl-1d8d5b76"><span class="cl-1d89d514">mat_range</span></p></td><td class="cl-1d8d6d83"><p class="cl-1d8d5b76"><span class="cl-1d89d514">6.84-23.89</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1d8d6d8c"><p class="cl-1d8d5b76"><span class="cl-1d89d514">map_range</span></p></td><td class="cl-1d8d6d8c"><p class="cl-1d8d5b76"><span class="cl-1d89d514">354.97-1476.5</span></p></td></tr></tbody></table></div>
-```
+<img src="dsp4sh_ref_states_figs_files/figure-gfm/site data summary-1.png" width="410" />
 
 ``` r
 # Range in clay content
@@ -183,12 +168,9 @@ surf %>%
   flextable()
 ```
 
-```{=html}
-<div class="tabwid"><style>.cl-1da7fa08{}.cl-1d9eb40c{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-1da2227c{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-1da235d2{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1da235dc{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-1da7fa08'><thead><tr style="overflow-wrap:break-word;"><th class="cl-1da235d2"><p class="cl-1da2227c"><span class="cl-1d9eb40c">clay_min</span></p></th><th class="cl-1da235d2"><p class="cl-1da2227c"><span class="cl-1d9eb40c">clay_max</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-1da235dc"><p class="cl-1da2227c"><span class="cl-1d9eb40c">1.491758</span></p></td><td class="cl-1da235dc"><p class="cl-1da2227c"><span class="cl-1d9eb40c">52.85</span></p></td></tr></tbody></table></div>
-```
+<img src="dsp4sh_ref_states_figs_files/figure-gfm/site data summary-2.png" width="312" />
 
 ### How many sites per project? How many pedons?
-
 
 ``` r
 plot_n <- project %>%
@@ -198,10 +180,8 @@ plot_n <- project %>%
   mutate(pedon_per_plot = round(pedon_n / plot_n, 0))
 ```
 
-```
-## `summarise()` has grouped output by 'project'. You can override using the
-## `.groups` argument.
-```
+    ## `summarise()` has grouped output by 'project'. You can override using the
+    ## `.groups` argument.
 
 ``` r
 pedon_n <- project %>%
@@ -209,13 +189,10 @@ pedon_n <- project %>%
   summarize(pedon_n = n_distinct(dsp_pedon_id))
 ```
 
-```
-## `summarise()` has grouped output by 'project'. You can override using the
-## `.groups` argument.
-```
+    ## `summarise()` has grouped output by 'project'. You can override using the
+    ## `.groups` argument.
 
 ### How many SOC and BD values were filled?
-
 
 ``` r
 missing_soc <- soc_horizon %>%
@@ -234,9 +211,7 @@ filled <- left_join(missing_bd, missing_soc, by="project")
 flextable(filled)
 ```
 
-```{=html}
-<div class="tabwid"><style>.cl-1de4ca6e{}.cl-1dd769a0{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-1ddabb96{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-1ddabba0{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-1ddacd7a{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1ddacd84{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1ddacd85{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1ddacd86{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1ddacd8e{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1ddacd8f{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-1de4ca6e'><thead><tr style="overflow-wrap:break-word;"><th class="cl-1ddacd7a"><p class="cl-1ddabb96"><span class="cl-1dd769a0">project</span></p></th><th class="cl-1ddacd84"><p class="cl-1ddabba0"><span class="cl-1dd769a0">bd_filled_n</span></p></th><th class="cl-1ddacd84"><p class="cl-1ddabba0"><span class="cl-1dd769a0">soc_filled_n</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-1ddacd85"><p class="cl-1ddabb96"><span class="cl-1dd769a0">Illinois</span></p></td><td class="cl-1ddacd86"><p class="cl-1ddabba0"><span class="cl-1dd769a0">51</span></p></td><td class="cl-1ddacd86"><p class="cl-1ddabba0"><span class="cl-1dd769a0">1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1ddacd85"><p class="cl-1ddabb96"><span class="cl-1dd769a0">KansasState</span></p></td><td class="cl-1ddacd86"><p class="cl-1ddabba0"><span class="cl-1dd769a0">5</span></p></td><td class="cl-1ddacd86"><p class="cl-1ddabba0"><span class="cl-1dd769a0"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1ddacd85"><p class="cl-1ddabb96"><span class="cl-1dd769a0">NCState</span></p></td><td class="cl-1ddacd86"><p class="cl-1ddabba0"><span class="cl-1dd769a0">4</span></p></td><td class="cl-1ddacd86"><p class="cl-1ddabba0"><span class="cl-1dd769a0"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1ddacd85"><p class="cl-1ddabb96"><span class="cl-1dd769a0">UConn</span></p></td><td class="cl-1ddacd86"><p class="cl-1ddabba0"><span class="cl-1dd769a0">6</span></p></td><td class="cl-1ddacd86"><p class="cl-1ddabba0"><span class="cl-1dd769a0"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1ddacd85"><p class="cl-1ddabb96"><span class="cl-1dd769a0">UnivOfMinnesota</span></p></td><td class="cl-1ddacd86"><p class="cl-1ddabba0"><span class="cl-1dd769a0">1</span></p></td><td class="cl-1ddacd86"><p class="cl-1ddabba0"><span class="cl-1dd769a0">2</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1ddacd8e"><p class="cl-1ddabb96"><span class="cl-1dd769a0">WashingtonState</span></p></td><td class="cl-1ddacd8f"><p class="cl-1ddabba0"><span class="cl-1dd769a0">36</span></p></td><td class="cl-1ddacd8f"><p class="cl-1ddabba0"><span class="cl-1dd769a0"></span></p></td></tr></tbody></table></div>
-```
+<img src="dsp4sh_ref_states_figs_files/figure-gfm/Table S2 - filled SOC and BD data-1.png" width="626" />
 
 ``` r
 filled_summary <- filled %>%
@@ -247,9 +222,7 @@ filled_summary <- filled %>%
 flextable(filled_summary)
 ```
 
-```{=html}
-<div class="tabwid"><style>.cl-1df5ad98{}.cl-1dec7016{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-1def0b00{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-1def1e92{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1def1e9c{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-1df5ad98'><thead><tr style="overflow-wrap:break-word;"><th class="cl-1def1e92"><p class="cl-1def0b00"><span class="cl-1dec7016">sum_soc</span></p></th><th class="cl-1def1e92"><p class="cl-1def0b00"><span class="cl-1dec7016">sum_bd</span></p></th><th class="cl-1def1e92"><p class="cl-1def0b00"><span class="cl-1dec7016">pct_soc</span></p></th><th class="cl-1def1e92"><p class="cl-1def0b00"><span class="cl-1dec7016">pct_bd</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-1def1e9c"><p class="cl-1def0b00"><span class="cl-1dec7016">3</span></p></td><td class="cl-1def1e9c"><p class="cl-1def0b00"><span class="cl-1dec7016">103</span></p></td><td class="cl-1def1e9c"><p class="cl-1def0b00"><span class="cl-1dec7016">0.1884422</span></p></td><td class="cl-1def1e9c"><p class="cl-1def0b00"><span class="cl-1dec7016">6.469849</span></p></td></tr></tbody></table></div>
-```
+<img src="dsp4sh_ref_states_figs_files/figure-gfm/Table S2 - filled SOC and BD data-2.png" width="627" />
 
 # Summary Figures of SOC Stocks
 
@@ -258,25 +231,20 @@ flextable(filled_summary)
 Mean, standard deviation, and n for SOC stocks calculated to 30 cm and
 100 cm for all soils in DSP4SH projects.
 
-
 ``` r
 soc_summary <- soc_pedon %>%
   group_by(project, soil, label) %>%
   summarize(across(soc_stock_0_30cm:soc_stock_100cm, mean_sd), n=n())
 ```
 
-```
-## `summarise()` has grouped output by 'project', 'soil'. You can override using
-## the `.groups` argument.
-```
+    ## `summarise()` has grouped output by 'project', 'soil'. You can override using
+    ## the `.groups` argument.
 
 ``` r
 flextable(soc_summary)
 ```
 
-```{=html}
-<div class="tabwid"><style>.cl-1e314042{}.cl-1e26af10{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-1e2a8aae{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-1e2a8ab8{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-1e2aa980{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1e2aa98a{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1e2aa98b{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1e2aa994{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1e2aa99e{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1e2aa9a8{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-1e314042'><thead><tr style="overflow-wrap:break-word;"><th class="cl-1e2aa980"><p class="cl-1e2a8aae"><span class="cl-1e26af10">project</span></p></th><th class="cl-1e2aa980"><p class="cl-1e2a8aae"><span class="cl-1e26af10">soil</span></p></th><th class="cl-1e2aa980"><p class="cl-1e2a8aae"><span class="cl-1e26af10">label</span></p></th><th class="cl-1e2aa98a"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">soc_stock_0_30cm_mean</span></p></th><th class="cl-1e2aa98a"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">soc_stock_0_30cm_sd</span></p></th><th class="cl-1e2aa98a"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">soc_stock_30_50cm_mean</span></p></th><th class="cl-1e2aa98a"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">soc_stock_30_50cm_sd</span></p></th><th class="cl-1e2aa98a"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">soc_stock_50_100cm_mean</span></p></th><th class="cl-1e2aa98a"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">soc_stock_50_100cm_sd</span></p></th><th class="cl-1e2aa98a"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">soc_stock_100cm_mean</span></p></th><th class="cl-1e2aa98a"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">soc_stock_100cm_sd</span></p></th><th class="cl-1e2aa98a"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">n</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Illinois</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Drummer</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">BAU</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">93.70</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">11.65</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">37.70</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">10.12</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">41.64</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">8.21</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">171.93</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">22.63</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">16</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Illinois</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Drummer</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Ref</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">119.64</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">10.55</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">37.61</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">4.60</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">40.08</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">4.83</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">197.33</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">4.03</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">3</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Illinois</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Drummer</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">SHM</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">91.78</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">22.22</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">31.91</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">11.30</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">75.64</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">72.22</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">203.73</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">81.93</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">6</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">KansasState</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Keith</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">BAU</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">52.75</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">11.65</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">20.28</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">2.99</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">43.26</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">13.67</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">116.29</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">20.80</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">KansasState</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Keith</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Ref</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">55.82</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">9.63</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">23.66</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">8.65</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">43.27</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">8.62</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">122.75</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">21.30</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">KansasState</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Keith</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">SHM</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">38.72</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">4.57</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">16.20</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">2.33</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">34.49</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">6.87</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">89.42</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">6.17</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">6</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">NCState</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Cecil</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">BAU</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">65.22</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">21.26</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">25.77</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">17.56</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">28.02</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">17.89</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">111.81</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">49.24</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">NCState</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Cecil</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Ref</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">45.04</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">1.57</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">11.62</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">2.57</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">13.55</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">4.18</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">70.21</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">8.32</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">2</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">NCState</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Cecil</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">SHM</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">56.20</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">17.59</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">17.78</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">5.09</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">19.17</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">4.86</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">92.70</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">20.25</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">OregonState</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Jory</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">BAU</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">93.50</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">18.58</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">38.54</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">8.02</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">53.36</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">15.40</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">185.40</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">32.87</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">OregonState</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Jory</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Ref</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">114.66</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">29.74</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">56.89</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">19.67</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">63.09</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">20.58</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">234.64</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">60.35</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">OregonState</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Jory</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">SHM</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">79.29</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">17.92</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">37.76</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">12.25</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">65.78</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">22.45</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">182.82</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">48.83</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">OregonState</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Woodburn</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">BAU</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">64.17</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">17.14</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">22.37</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">11.94</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">27.35</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">12.71</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">113.88</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">41.19</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">OregonState</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Woodburn</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Ref</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">67.94</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">17.20</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">22.22</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">8.25</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">22.05</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">6.71</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">112.20</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">26.85</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">OregonState</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Woodburn</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">SHM</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">69.31</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">8.73</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">21.96</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">5.93</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">32.27</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">5.32</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">123.53</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">17.31</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">TexasA&amp;MPt-1</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Amarillo</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">BAU</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">8.07</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">1.41</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">5.33</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">0.72</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">11.82</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">2.02</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">25.21</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">2.97</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">TexasA&amp;MPt-1</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Amarillo</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Ref</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">11.92</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">1.77</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">7.14</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">1.69</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">19.25</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">2.40</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">38.31</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">2.01</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">3</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">TexasA&amp;MPt-1</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Amarillo</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">SHM</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">12.15</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">1.65</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">5.34</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">1.08</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">13.38</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">3.67</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">30.87</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">5.72</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">18</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">TexasA&amp;MPt-2</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Pullman</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">BAU</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">TexasA&amp;MPt-2</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Pullman</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Ref</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">6</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">TexasA&amp;MPt-2</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Pullman</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">SHM</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">UConn</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Canton</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Ref</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">UConn</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Canton</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">SHM</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">77.16</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">38.31</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">UConn</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Woodbridge</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">BAU</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">69.00</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">10.26</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">21.43</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">100.68</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">UConn</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Woodbridge</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Ref</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">141.11</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">22.13</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">15.86</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">5.11</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">28.48</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">4.16</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">208.18</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">16.35</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">UConn</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Woodbridge</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">SHM</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">92.77</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">10.21</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">14.73</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">2.28</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">20.61</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">119.32</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10"></span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">UTRGV</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Hidalgo</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">BAU</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">53.53</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">20.09</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">26.55</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">12.26</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">50.20</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">31.42</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">130.28</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">59.54</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">27</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">UTRGV</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Hidalgo</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Ref</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">93.15</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">36.21</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">34.48</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">19.75</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">48.37</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">18.79</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">176.00</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">58.70</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">6</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">UnivOfMinnesota</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Kenyon</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Ref</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">123.36</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">12.69</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">75.07</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">9.19</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">99.48</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">31.37</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">297.91</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">38.93</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">UnivOfMinnesota</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Marquis</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">SHM</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">110.97</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">15.61</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">39.38</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">14.55</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">46.98</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">22.29</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">197.33</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">40.57</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">UnivOfMinnesota</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Readlyn</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">BAU</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">90.41</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">11.21</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">25.94</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">4.72</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">37.42</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">12.35</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">153.76</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">16.82</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">WashingtonState</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Palouse</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">BAU</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">44.27</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">14.40</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">23.09</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">10.13</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">51.55</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">32.84</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">118.91</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">54.72</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">WashingtonState</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Palouse</span></p></td><td class="cl-1e2aa98b"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Ref</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">47.57</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">6.66</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">24.74</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">11.06</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">40.52</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">25.65</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">112.83</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">42.55</span></p></td><td class="cl-1e2aa994"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">6</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e2aa99e"><p class="cl-1e2a8aae"><span class="cl-1e26af10">WashingtonState</span></p></td><td class="cl-1e2aa99e"><p class="cl-1e2a8aae"><span class="cl-1e26af10">Palouse</span></p></td><td class="cl-1e2aa99e"><p class="cl-1e2a8aae"><span class="cl-1e26af10">SHM</span></p></td><td class="cl-1e2aa9a8"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">50.97</span></p></td><td class="cl-1e2aa9a8"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">14.95</span></p></td><td class="cl-1e2aa9a8"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">22.70</span></p></td><td class="cl-1e2aa9a8"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">13.13</span></p></td><td class="cl-1e2aa9a8"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">37.82</span></p></td><td class="cl-1e2aa9a8"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">23.31</span></p></td><td class="cl-1e2aa9a8"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">111.50</span></p></td><td class="cl-1e2aa9a8"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">48.02</span></p></td><td class="cl-1e2aa9a8"><p class="cl-1e2a8ab8"><span class="cl-1e26af10">12</span></p></td></tr></tbody></table></div>
-```
+<img src="dsp4sh_ref_states_figs_files/figure-gfm/Table 1 - soc summary table-1.png" width="3708" />
 
 ``` r
 # range in SOC values
@@ -285,9 +253,7 @@ soc_min_max <- soc_pedon %>%
 flextable(soc_min_max)
 ```
 
-```{=html}
-<div class="tabwid"><style>.cl-1e43d6e4{}.cl-1e3cc50c{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-1e3f5d1c{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-1e3f6d0c{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1e3f6d16{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-1e43d6e4'><thead><tr style="overflow-wrap:break-word;"><th class="cl-1e3f6d0c"><p class="cl-1e3f5d1c"><span class="cl-1e3cc50c">soc_stock_0_30cm_min</span></p></th><th class="cl-1e3f6d0c"><p class="cl-1e3f5d1c"><span class="cl-1e3cc50c">soc_stock_0_30cm_max</span></p></th><th class="cl-1e3f6d0c"><p class="cl-1e3f5d1c"><span class="cl-1e3cc50c">soc_stock_30_50cm_min</span></p></th><th class="cl-1e3f6d0c"><p class="cl-1e3f5d1c"><span class="cl-1e3cc50c">soc_stock_30_50cm_max</span></p></th><th class="cl-1e3f6d0c"><p class="cl-1e3f5d1c"><span class="cl-1e3cc50c">soc_stock_50_100cm_min</span></p></th><th class="cl-1e3f6d0c"><p class="cl-1e3f5d1c"><span class="cl-1e3cc50c">soc_stock_50_100cm_max</span></p></th><th class="cl-1e3f6d0c"><p class="cl-1e3f5d1c"><span class="cl-1e3cc50c">soc_stock_100cm_min</span></p></th><th class="cl-1e3f6d0c"><p class="cl-1e3f5d1c"><span class="cl-1e3cc50c">soc_stock_100cm_max</span></p></th><th class="cl-1e3f6d0c"><p class="cl-1e3f5d1c"><span class="cl-1e3cc50c">n</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-1e3f6d16"><p class="cl-1e3f5d1c"><span class="cl-1e3cc50c">6.0575</span></p></td><td class="cl-1e3f6d16"><p class="cl-1e3f5d1c"><span class="cl-1e3cc50c">166.2114</span></p></td><td class="cl-1e3f6d16"><p class="cl-1e3f5d1c"><span class="cl-1e3cc50c">2.2</span></p></td><td class="cl-1e3f6d16"><p class="cl-1e3f5d1c"><span class="cl-1e3cc50c">96.18581</span></p></td><td class="cl-1e3f6d16"><p class="cl-1e3f5d1c"><span class="cl-1e3cc50c">4.5162</span></p></td><td class="cl-1e3f6d16"><p class="cl-1e3f5d1c"><span class="cl-1e3cc50c">183.7562</span></p></td><td class="cl-1e3f6d16"><p class="cl-1e3f5d1c"><span class="cl-1e3cc50c">21.332</span></p></td><td class="cl-1e3f6d16"><p class="cl-1e3f5d1c"><span class="cl-1e3cc50c">372.2768</span></p></td><td class="cl-1e3f6d16"><p class="cl-1e3f5d1c"><span class="cl-1e3cc50c">276</span></p></td></tr></tbody></table></div>
-```
+<img src="dsp4sh_ref_states_figs_files/figure-gfm/Table 1 - soc summary table-2.png" width="3096" />
 
 ``` r
 # which is the min?
@@ -295,10 +261,8 @@ soc_pedon %>% slice_min(soc_stock_100cm, n = 1) %>%
   select(project, label, dsp_pedon_id, soc_stock_100cm)
 ```
 
-```
-##        project label dsp_pedon_id soc_stock_100cm
-## 1 TexasA&MPt-1   BAU      CVT-1-1          21.332
-```
+    ##        project label dsp_pedon_id soc_stock_100cm
+    ## 1 TexasA&MPt-1   BAU      CVT-1-1          21.332
 
 ``` r
 # which is the max?
@@ -306,44 +270,36 @@ soc_pedon %>% slice_max(soc_stock_100cm, n = 1) %>%
   select(project, label, dsp_pedon_id, soc_stock_100cm)
 ```
 
-```
-##           project label dsp_pedon_id soc_stock_100cm
-## 1 UnivOfMinnesota   Ref        REF-2        372.2768
-```
+    ##           project label dsp_pedon_id soc_stock_100cm
+    ## 1 UnivOfMinnesota   Ref        REF-2        372.2768
 
 ## Fig 2 - Boxplots of total SOC stocks under different management treatments
 
 Plot boxplots of total SOC stocks under different management treatments:
 
+    ## Warning: Removed 2 rows containing non-finite outside the scale range
+    ## (`stat_boxplot()`).
 
-```
-## Warning: Removed 2 rows containing non-finite outside the scale range
-## (`stat_boxplot()`).
-```
+    ## Warning: Removed 18 rows containing non-finite outside the scale range
+    ## (`stat_boxplot()`).
 
-```
-## Warning: Removed 18 rows containing non-finite outside the scale range
-## (`stat_boxplot()`).
-```
-
-![](dsp4sh_ref_states_figs_files/figure-html/Figure 2 - soc 100 cm and 30 cm stock boxplots-1.png)<!-- -->
+![](dsp4sh_ref_states_figs_files/figure-gfm/Figure%202%20-%20soc%20100%20cm%20and%2030%20cm%20stock%20boxplots-1.png)<!-- -->
 
 Takeaways:
 
--   Significant variability in SOC stocks between sites (expected)
+- Significant variability in SOC stocks between sites (expected)
 
--   Differences between treatments more apparent at 30 cm depth than 100
-    cm depth
+- Differences between treatments more apparent at 30 cm depth than 100
+  cm depth
 
--   Reference sites are significantly higher in C at some, but not all
-    sites (Illinois, UConn, University of Minnesota, UTRGV)
+- Reference sites are significantly higher in C at some, but not all
+  sites (Illinois, UConn, University of Minnesota, UTRGV)
 
--   Differences between SHM and BAU are infrequently observed
+- Differences between SHM and BAU are infrequently observed
 
 # Test effect of treatment on SOC stocks and concentrations with mixed linear model
 
 ## Effect of treatment on SOC stocks to 100 cm depth
-
 
 ``` r
 # Remove NAs from data
@@ -357,37 +313,35 @@ soc_stock100_mixed <- lmer(soc_stock_100cm ~ label + (1|project), data = soc100_
 summary(soc_stock100_mixed)
 ```
 
-```
-## Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-## lmerModLmerTest]
-## Formula: soc_stock_100cm ~ label + (1 | project)
-##    Data: soc100_clean
-## 
-## REML criterion at convergence: 2484.1
-## 
-## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -2.5271 -0.5977 -0.1282  0.4769  2.9054 
-## 
-## Random effects:
-##  Groups   Name        Variance Std.Dev.
-##  project  (Intercept) 2668     51.65   
-##  Residual             2316     48.12   
-## Number of obs: 234, groups:  project, 9
-## 
-## Fixed effects:
-##             Estimate Std. Error      df t value Pr(>|t|)    
-## (Intercept)  123.423     18.070   8.970   6.830 7.77e-05 ***
-## labelRef      36.910      8.221 224.569   4.490 1.14e-05 ***
-## labelSHM       3.908      7.942 225.232   0.492    0.623    
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
-## Correlation of Fixed Effects:
-##          (Intr) lablRf
-## labelRef -0.173       
-## labelSHM -0.186  0.410
-```
+    ## Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+    ## lmerModLmerTest]
+    ## Formula: soc_stock_100cm ~ label + (1 | project)
+    ##    Data: soc100_clean
+    ## 
+    ## REML criterion at convergence: 2484.1
+    ## 
+    ## Scaled residuals: 
+    ##     Min      1Q  Median      3Q     Max 
+    ## -2.5271 -0.5977 -0.1282  0.4769  2.9054 
+    ## 
+    ## Random effects:
+    ##  Groups   Name        Variance Std.Dev.
+    ##  project  (Intercept) 2668     51.65   
+    ##  Residual             2316     48.12   
+    ## Number of obs: 234, groups:  project, 9
+    ## 
+    ## Fixed effects:
+    ##             Estimate Std. Error      df t value Pr(>|t|)    
+    ## (Intercept)  123.423     18.070   8.970   6.830 7.77e-05 ***
+    ## labelRef      36.910      8.221 224.569   4.490 1.14e-05 ***
+    ## labelSHM       3.908      7.942 225.232   0.492    0.623    
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Correlation of Fixed Effects:
+    ##          (Intr) lablRf
+    ## labelRef -0.173       
+    ## labelSHM -0.186  0.410
 
 ``` r
 # Test significance of treatment by comparing full and reduced models, use likelihood ratio test
@@ -397,10 +351,8 @@ drop1_100 <- drop1(lmer(soc_stock_100cm ~ label + (1|project), data = soc100_cle
   mutate(var="soc_stock_100")
 ```
 
-```
-## Warning in tidy.anova(.): The following column names in ANOVA output were not
-## recognized or transformed: NumDF, DenDF
-```
+    ## Warning in tidy.anova(.): The following column names in ANOVA output were not
+    ## recognized or transformed: NumDF, DenDF
 
 ``` r
 # Tukey post-hoc
@@ -430,7 +382,6 @@ stock is significantly different from BAU and Ref groups.
 
 ## Effect of treatment on SOC stocks to 30 cm depth
 
-
 ``` r
 # Remove NAs from data
 soc30_clean <- soc_pedon %>%
@@ -443,37 +394,35 @@ soc_stock30_mixed <- lmer(soc_stock_0_30cm ~ label + (1|project), data = soc30_c
 summary(soc_stock30_mixed)
 ```
 
-```
-## Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-## lmerModLmerTest]
-## Formula: soc_stock_0_30cm ~ label + (1 | project)
-##    Data: soc30_clean
-## 
-## REML criterion at convergence: 2203.7
-## 
-## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -3.0993 -0.6676 -0.0388  0.4469  3.6310 
-## 
-## Random effects:
-##  Groups   Name        Variance Std.Dev.
-##  project  (Intercept) 952.9    30.87   
-##  Residual             363.1    19.06   
-## Number of obs: 250, groups:  project, 9
-## 
-## Fixed effects:
-##             Estimate Std. Error      df t value Pr(>|t|)    
-## (Intercept)   64.218     10.488   8.345   6.123 0.000238 ***
-## labelRef      17.995      3.217 239.704   5.594 6.02e-08 ***
-## labelSHM       1.561      3.030 240.204   0.515 0.606966    
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
-## Correlation of Fixed Effects:
-##          (Intr) lablRf
-## labelRef -0.116       
-## labelSHM -0.133  0.425
-```
+    ## Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+    ## lmerModLmerTest]
+    ## Formula: soc_stock_0_30cm ~ label + (1 | project)
+    ##    Data: soc30_clean
+    ## 
+    ## REML criterion at convergence: 2203.7
+    ## 
+    ## Scaled residuals: 
+    ##     Min      1Q  Median      3Q     Max 
+    ## -3.0993 -0.6676 -0.0388  0.4469  3.6310 
+    ## 
+    ## Random effects:
+    ##  Groups   Name        Variance Std.Dev.
+    ##  project  (Intercept) 952.9    30.87   
+    ##  Residual             363.1    19.06   
+    ## Number of obs: 250, groups:  project, 9
+    ## 
+    ## Fixed effects:
+    ##             Estimate Std. Error      df t value Pr(>|t|)    
+    ## (Intercept)   64.218     10.488   8.345   6.123 0.000238 ***
+    ## labelRef      17.995      3.217 239.704   5.594 6.02e-08 ***
+    ## labelSHM       1.561      3.030 240.204   0.515 0.606966    
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Correlation of Fixed Effects:
+    ##          (Intr) lablRf
+    ## labelRef -0.116       
+    ## labelSHM -0.133  0.425
 
 ``` r
 # Test significance of treatment by comparing full and reduced models, use likelihood ratio test
@@ -483,10 +432,8 @@ drop1_30 <- drop1(lmer(soc_stock_0_30cm ~ label + (1|project), data = soc30_clea
   mutate(var="soc_stock_30")
 ```
 
-```
-## Warning in tidy.anova(.): The following column names in ANOVA output were not
-## recognized or transformed: NumDF, DenDF
-```
+    ## Warning in tidy.anova(.): The following column names in ANOVA output were not
+    ## recognized or transformed: NumDF, DenDF
 
 ``` r
 # Tukey post-hoc
@@ -514,7 +461,6 @@ there is a significant effect of treatment when between-project
 variation is controlled for. Tukey HSD post-hoc test shows that Ref SOC
 stock is significantly different from BAU and Ref groups.
 
-
 ``` r
 pred_let_both <- pred_let_30 %>%
   bind_rows(pred_let_100)
@@ -531,28 +477,25 @@ stock_lmer_table <- drop1_both %>%
 flextable(stock_lmer_table)
 ```
 
-```{=html}
-<div class="tabwid"><style>.cl-1fdabaa4{}.cl-1fd28230{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-1fd543ee{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-1fd543f8{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-1fd553a2{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1fd553ac{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1fd553ad{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1fd553ae{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1fd553b6{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1fd553b7{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-1fdabaa4'><thead><tr style="overflow-wrap:break-word;"><th class="cl-1fd553a2"><p class="cl-1fd543ee"><span class="cl-1fd28230">var</span></p></th><th class="cl-1fd553a2"><p class="cl-1fd543ee"><span class="cl-1fd28230">term</span></p></th><th class="cl-1fd553ac"><p class="cl-1fd543f8"><span class="cl-1fd28230">statistic</span></p></th><th class="cl-1fd553a2"><p class="cl-1fd543ee"><span class="cl-1fd28230">p.value</span></p></th><th class="cl-1fd553a2"><p class="cl-1fd543ee"><span class="cl-1fd28230">label</span></p></th><th class="cl-1fd553ac"><p class="cl-1fd543f8"><span class="cl-1fd28230">predicted</span></p></th><th class="cl-1fd553a2"><p class="cl-1fd543ee"><span class="cl-1fd28230">letter</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-1fd553ad"><p class="cl-1fd543ee"><span class="cl-1fd28230">soc_stock_30</span></p></td><td class="cl-1fd553ad"><p class="cl-1fd543ee"><span class="cl-1fd28230">label</span></p></td><td class="cl-1fd553ae"><p class="cl-1fd543f8"><span class="cl-1fd28230">17.93</span></p></td><td class="cl-1fd553ad"><p class="cl-1fd543ee"><span class="cl-1fd28230">&lt;0.001</span></p></td><td class="cl-1fd553ad"><p class="cl-1fd543ee"><span class="cl-1fd28230">BAU</span></p></td><td class="cl-1fd553ae"><p class="cl-1fd543f8"><span class="cl-1fd28230">64.2</span></p></td><td class="cl-1fd553ad"><p class="cl-1fd543ee"><span class="cl-1fd28230">a</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fd553ad"><p class="cl-1fd543ee"><span class="cl-1fd28230">soc_stock_30</span></p></td><td class="cl-1fd553ad"><p class="cl-1fd543ee"><span class="cl-1fd28230">label</span></p></td><td class="cl-1fd553ae"><p class="cl-1fd543f8"><span class="cl-1fd28230">17.93</span></p></td><td class="cl-1fd553ad"><p class="cl-1fd543ee"><span class="cl-1fd28230">&lt;0.001</span></p></td><td class="cl-1fd553ad"><p class="cl-1fd543ee"><span class="cl-1fd28230">Ref</span></p></td><td class="cl-1fd553ae"><p class="cl-1fd543f8"><span class="cl-1fd28230">82.2</span></p></td><td class="cl-1fd553ad"><p class="cl-1fd543ee"><span class="cl-1fd28230">b</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fd553ad"><p class="cl-1fd543ee"><span class="cl-1fd28230">soc_stock_30</span></p></td><td class="cl-1fd553ad"><p class="cl-1fd543ee"><span class="cl-1fd28230">label</span></p></td><td class="cl-1fd553ae"><p class="cl-1fd543f8"><span class="cl-1fd28230">17.93</span></p></td><td class="cl-1fd553ad"><p class="cl-1fd543ee"><span class="cl-1fd28230">&lt;0.001</span></p></td><td class="cl-1fd553ad"><p class="cl-1fd543ee"><span class="cl-1fd28230">SHM</span></p></td><td class="cl-1fd553ae"><p class="cl-1fd543f8"><span class="cl-1fd28230">65.8</span></p></td><td class="cl-1fd553ad"><p class="cl-1fd543ee"><span class="cl-1fd28230">a</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fd553ad"><p class="cl-1fd543ee"><span class="cl-1fd28230">soc_stock_100</span></p></td><td class="cl-1fd553ad"><p class="cl-1fd543ee"><span class="cl-1fd28230">label</span></p></td><td class="cl-1fd553ae"><p class="cl-1fd543f8"><span class="cl-1fd28230">11.31</span></p></td><td class="cl-1fd553ad"><p class="cl-1fd543ee"><span class="cl-1fd28230">&lt;0.001</span></p></td><td class="cl-1fd553ad"><p class="cl-1fd543ee"><span class="cl-1fd28230">BAU</span></p></td><td class="cl-1fd553ae"><p class="cl-1fd543f8"><span class="cl-1fd28230">123.4</span></p></td><td class="cl-1fd553ad"><p class="cl-1fd543ee"><span class="cl-1fd28230">a</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fd553ad"><p class="cl-1fd543ee"><span class="cl-1fd28230">soc_stock_100</span></p></td><td class="cl-1fd553ad"><p class="cl-1fd543ee"><span class="cl-1fd28230">label</span></p></td><td class="cl-1fd553ae"><p class="cl-1fd543f8"><span class="cl-1fd28230">11.31</span></p></td><td class="cl-1fd553ad"><p class="cl-1fd543ee"><span class="cl-1fd28230">&lt;0.001</span></p></td><td class="cl-1fd553ad"><p class="cl-1fd543ee"><span class="cl-1fd28230">Ref</span></p></td><td class="cl-1fd553ae"><p class="cl-1fd543f8"><span class="cl-1fd28230">160.3</span></p></td><td class="cl-1fd553ad"><p class="cl-1fd543ee"><span class="cl-1fd28230">b</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fd553b6"><p class="cl-1fd543ee"><span class="cl-1fd28230">soc_stock_100</span></p></td><td class="cl-1fd553b6"><p class="cl-1fd543ee"><span class="cl-1fd28230">label</span></p></td><td class="cl-1fd553b7"><p class="cl-1fd543f8"><span class="cl-1fd28230">11.31</span></p></td><td class="cl-1fd553b6"><p class="cl-1fd543ee"><span class="cl-1fd28230">&lt;0.001</span></p></td><td class="cl-1fd553b6"><p class="cl-1fd543ee"><span class="cl-1fd28230">SHM</span></p></td><td class="cl-1fd553b7"><p class="cl-1fd543f8"><span class="cl-1fd28230">127.3</span></p></td><td class="cl-1fd553b6"><p class="cl-1fd543ee"><span class="cl-1fd28230">a</span></p></td></tr></tbody></table></div>
-```
+<img src="dsp4sh_ref_states_figs_files/figure-gfm/make table of lmer results-1.png" width="1135" />
 
 ## Plot results of mixed linear model
 
-![](dsp4sh_ref_states_figs_files/figure-html/plot results of mixed linear model to 30 and 100 cm-1.png)<!-- -->
+![](dsp4sh_ref_states_figs_files/figure-gfm/plot%20results%20of%20mixed%20linear%20model%20to%2030%20and%20100%20cm-1.png)<!-- -->
 
 Takeaways:
 
--   Though not many significant differences are detected between
-    treatments within each project, mixed linear model suggests that
-    when accounting for between-project variability, SOC stocks (both
-    30cm and 100cm depth) are significantly higher in the Ref condition
-    vs. SHM and BAU.
+- Though not many significant differences are detected between
+  treatments within each project, mixed linear model suggests that when
+  accounting for between-project variability, SOC stocks (both 30cm and
+  100cm depth) are significantly higher in the Ref condition vs. SHM and
+  BAU.
 
--   Supports choice of Ref conditions as a broad concept.
+- Supports choice of Ref conditions as a broad concept.
 
 # Drivers of SOC variability
 
 ## Plot relationship between MAT, MAP, and SOC stocks in Ref sites only
-
 
 ``` r
 mat_soc <- ggplot(soc_pedon %>% filter(label=="Ref"), aes(x=mat, y=soc_stock_100cm)) +
@@ -582,55 +525,35 @@ clim_soc_plot <- mat_soc + map_soc +
 clim_soc_plot
 ```
 
-```
-## `geom_smooth()` using formula = 'y ~ x'
-```
+    ## `geom_smooth()` using formula = 'y ~ x'
 
-```
-## Warning: Removed 9 rows containing non-finite outside the scale range
-## (`stat_smooth()`).
-```
+    ## Warning: Removed 9 rows containing non-finite outside the scale range
+    ## (`stat_smooth()`).
 
-```
-## Warning: Removed 9 rows containing non-finite outside the scale range
-## (`stat_cor()`).
-```
+    ## Warning: Removed 9 rows containing non-finite outside the scale range
+    ## (`stat_cor()`).
 
-```
-## Warning: Removed 9 rows containing non-finite outside the scale range
-## (`stat_regline_equation()`).
-```
+    ## Warning: Removed 9 rows containing non-finite outside the scale range
+    ## (`stat_regline_equation()`).
 
-```
-## Warning: Removed 9 rows containing missing values or values outside the scale range
-## (`geom_point()`).
-```
+    ## Warning: Removed 9 rows containing missing values or values outside the scale range
+    ## (`geom_point()`).
 
-```
-## `geom_smooth()` using formula = 'y ~ x'
-```
+    ## `geom_smooth()` using formula = 'y ~ x'
 
-```
-## Warning: Removed 9 rows containing non-finite outside the scale range
-## (`stat_smooth()`).
-```
+    ## Warning: Removed 9 rows containing non-finite outside the scale range
+    ## (`stat_smooth()`).
 
-```
-## Warning: Removed 9 rows containing non-finite outside the scale range
-## (`stat_cor()`).
-```
+    ## Warning: Removed 9 rows containing non-finite outside the scale range
+    ## (`stat_cor()`).
 
-```
-## Warning: Removed 9 rows containing non-finite outside the scale range
-## (`stat_regline_equation()`).
-```
+    ## Warning: Removed 9 rows containing non-finite outside the scale range
+    ## (`stat_regline_equation()`).
 
-```
-## Warning: Removed 9 rows containing missing values or values outside the scale range
-## (`geom_point()`).
-```
+    ## Warning: Removed 9 rows containing missing values or values outside the scale range
+    ## (`geom_point()`).
 
-![](dsp4sh_ref_states_figs_files/figure-html/fig s2-1.png)<!-- -->
+![](dsp4sh_ref_states_figs_files/figure-gfm/fig%20s2-1.png)<!-- -->
 
 ## Random forest model to look at drivers of SOC stock variation
 
@@ -668,20 +591,16 @@ soc_vip <- vip(soc_vi, geom="col",
 soc_vip
 ```
 
-![](dsp4sh_ref_states_figs_files/figure-html/fig s3-1.png)<!-- -->
+![](dsp4sh_ref_states_figs_files/figure-gfm/fig%20s3-1.png)<!-- -->
 
 # Boxplots of SOC stock data calculated via ESM
 
+    ## `summarise()` has grouped output by 'project', 'label', 'dsp_pedon_id'. You can
+    ## override using the `.groups` argument.
 
-```
-## `summarise()` has grouped output by 'project', 'label', 'dsp_pedon_id'. You can
-## override using the `.groups` argument.
-```
-
-![](dsp4sh_ref_states_figs_files/figure-html/figure s4-1.png)<!-- -->
+![](dsp4sh_ref_states_figs_files/figure-gfm/figure%20s4-1.png)<!-- -->
 
 ## Comparison of ESM results to fixed depth results
-
 
 ``` r
 esm_standard_min_totals_long <- esm_standard_min_totals %>%
@@ -714,15 +633,12 @@ ggplot(soc_fixed_esm, aes(x=label, y=soc_stock, fill=calc_method)) +
   theme_katy()
 ```
 
-```
-## Warning: Removed 56 rows containing non-finite outside the scale range
-## (`stat_boxplot()`).
-```
+    ## Warning: Removed 56 rows containing non-finite outside the scale range
+    ## (`stat_boxplot()`).
 
-![](dsp4sh_ref_states_figs_files/figure-html/figure s5-1.png)<!-- -->
+![](dsp4sh_ref_states_figs_files/figure-gfm/figure%20s5-1.png)<!-- -->
 
-Table of difference in SOC stocks calculated via fixed depth vs. ESM:
-
+Table of difference in SOC stocks calculated via fixed depth vs. ESM:
 
 ``` r
 # Calculate differences
@@ -736,18 +652,14 @@ soc_stock_comparison <- soc_fixed_esm %>%
   arrange(project, label, depth)
 ```
 
-```
-## `summarise()` has grouped output by 'project', 'label'. You can override using
-## the `.groups` argument.
-```
+    ## `summarise()` has grouped output by 'project', 'label'. You can override using
+    ## the `.groups` argument.
 
 ``` r
 flextable(soc_stock_comparison)
 ```
 
-```{=html}
-<div class="tabwid"><style>.cl-80f2fb58{}.cl-80e95f80{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-80ed3c9a{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-80ed3ca4{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-80ed516c{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-80ed5176{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-80ed5177{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-80ed5180{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-80ed518a{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-80ed518b{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-80f2fb58'><thead><tr style="overflow-wrap:break-word;"><th class="cl-80ed516c"><p class="cl-80ed3c9a"><span class="cl-80e95f80">project</span></p></th><th class="cl-80ed516c"><p class="cl-80ed3c9a"><span class="cl-80e95f80">label</span></p></th><th class="cl-80ed516c"><p class="cl-80ed3c9a"><span class="cl-80e95f80">depth</span></p></th><th class="cl-80ed5176"><p class="cl-80ed3ca4"><span class="cl-80e95f80">soc_stock_fixed</span></p></th><th class="cl-80ed5176"><p class="cl-80ed3ca4"><span class="cl-80e95f80">soc_stock_esm</span></p></th><th class="cl-80ed5176"><p class="cl-80ed3ca4"><span class="cl-80e95f80">difference</span></p></th><th class="cl-80ed5176"><p class="cl-80ed3ca4"><span class="cl-80e95f80">percent_diff</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">Illinois</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">BAU</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to30cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">93.7</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">82.8</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">10.9</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">13.2</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">Illinois</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">BAU</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to100cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">171.9</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">163.5</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">8.4</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">5.1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">Illinois</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">SHM</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to30cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">91.8</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">87.0</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">4.8</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">5.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">Illinois</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">SHM</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to100cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">203.7</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">176.8</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">26.9</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">15.2</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">Illinois</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">Ref</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to30cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">119.6</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">116.3</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">3.3</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">2.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">Illinois</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">Ref</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to100cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">197.3</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">191.6</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">5.7</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">3.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">KansasState</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">BAU</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to30cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">52.8</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">43.1</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">9.7</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">22.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">KansasState</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">BAU</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to100cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">116.3</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">98.3</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">18.0</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">18.3</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">KansasState</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">SHM</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to30cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">38.7</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">32.4</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">6.3</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">19.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">KansasState</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">SHM</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to100cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">89.4</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">76.6</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">12.8</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">16.7</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">KansasState</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">Ref</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to30cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">55.8</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">49.6</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">6.2</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">12.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">KansasState</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">Ref</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to100cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">122.8</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">109.8</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">13.0</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">11.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">NCState</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">BAU</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to30cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">65.2</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">43.5</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">21.7</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">49.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">NCState</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">BAU</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to100cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">111.8</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">98.4</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">13.4</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">13.6</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">NCState</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">SHM</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to30cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">56.2</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">45.2</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">11.0</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">24.3</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">NCState</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">SHM</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to100cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">92.7</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">86.9</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">5.8</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">6.7</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">NCState</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">Ref</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to30cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">45.0</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">39.1</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">5.9</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">15.1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">NCState</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">Ref</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to100cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">70.2</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">63.8</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">6.4</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">10.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">OregonState</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">BAU</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to30cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">78.8</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">68.0</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">10.8</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">15.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">OregonState</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">BAU</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to100cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">149.6</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">149.6</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">0.0</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">0.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">OregonState</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">SHM</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to30cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">74.0</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">66.9</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">7.1</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">10.6</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">OregonState</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">SHM</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to100cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">151.4</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">146.0</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">5.4</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">3.7</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">OregonState</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">Ref</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to30cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">91.3</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">90.0</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">1.3</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">1.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">OregonState</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">Ref</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to100cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">173.4</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">174.7</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">-1.3</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">-0.7</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">TexasA&amp;MPt-1</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">BAU</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to30cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">8.1</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">7.0</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">1.1</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">15.7</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">TexasA&amp;MPt-1</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">BAU</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to100cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">25.2</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">22.5</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">2.7</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">12.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">TexasA&amp;MPt-1</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">SHM</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to30cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">12.2</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">11.8</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">0.4</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">3.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">TexasA&amp;MPt-1</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">SHM</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to100cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">30.9</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">27.5</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">3.4</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">12.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">TexasA&amp;MPt-1</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">Ref</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to30cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">11.9</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">10.0</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">1.9</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">19.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">TexasA&amp;MPt-1</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">Ref</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to100cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">38.3</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">29.2</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">9.1</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">31.2</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">UConn</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">BAU</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to30cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">69.0</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">68.0</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">1.0</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">1.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">UConn</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">BAU</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to100cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">100.7</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">99.6</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">1.1</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">1.1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">UConn</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">SHM</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to30cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">90.2</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">86.2</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">4.0</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">4.6</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">UConn</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">SHM</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to100cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">119.3</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">142.6</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">-23.3</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">-16.3</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">UConn</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">Ref</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to30cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">141.1</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">171.5</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">-30.4</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">-17.7</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">UConn</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">Ref</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to100cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">208.2</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">220.3</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">-12.1</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">-5.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">UTRGV</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">BAU</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to30cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">53.5</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">32.9</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">20.6</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">62.6</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">UTRGV</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">BAU</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to100cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">130.3</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">117.7</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">12.6</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">10.7</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">UTRGV</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">Ref</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to30cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">93.2</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">64.6</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">28.6</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">44.3</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">UTRGV</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">Ref</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to100cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">176.0</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">161.0</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">15.0</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">9.3</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">UnivOfMinnesota</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">BAU</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to30cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">90.4</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">62.5</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">27.9</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">44.6</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">UnivOfMinnesota</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">BAU</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to100cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">153.8</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">128.8</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">25.0</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">19.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">UnivOfMinnesota</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">SHM</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to30cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">111.0</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">68.3</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">42.7</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">62.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">UnivOfMinnesota</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">SHM</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to100cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">197.3</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">169.4</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">27.9</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">16.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">UnivOfMinnesota</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">Ref</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to30cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">123.4</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">110.0</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">13.4</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">12.2</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">UnivOfMinnesota</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">Ref</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to100cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">297.9</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">296.7</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">1.2</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">0.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">WashingtonState</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">BAU</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to30cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">44.3</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">33.9</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">10.4</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">30.7</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">WashingtonState</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">BAU</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to100cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">118.9</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">98.5</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">20.4</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">20.7</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">WashingtonState</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">SHM</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to30cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">51.0</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">39.4</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">11.6</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">29.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">WashingtonState</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">SHM</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to100cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">111.5</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">93.3</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">18.2</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">19.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">WashingtonState</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">Ref</span></p></td><td class="cl-80ed5177"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to30cm</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">47.6</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">40.1</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">7.5</span></p></td><td class="cl-80ed5180"><p class="cl-80ed3ca4"><span class="cl-80e95f80">18.7</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80ed518a"><p class="cl-80ed3c9a"><span class="cl-80e95f80">WashingtonState</span></p></td><td class="cl-80ed518a"><p class="cl-80ed3c9a"><span class="cl-80e95f80">Ref</span></p></td><td class="cl-80ed518a"><p class="cl-80ed3c9a"><span class="cl-80e95f80">0to100cm</span></p></td><td class="cl-80ed518b"><p class="cl-80ed3ca4"><span class="cl-80e95f80">112.8</span></p></td><td class="cl-80ed518b"><p class="cl-80ed3ca4"><span class="cl-80e95f80">93.1</span></p></td><td class="cl-80ed518b"><p class="cl-80ed3ca4"><span class="cl-80e95f80">19.7</span></p></td><td class="cl-80ed518b"><p class="cl-80ed3ca4"><span class="cl-80e95f80">21.2</span></p></td></tr></tbody></table></div>
-```
+<img src="dsp4sh_ref_states_figs_files/figure-gfm/table s3-1.png" width="1407" />
 
 ``` r
 soc_stock_comparison_summary <- soc_stock_comparison %>%
@@ -758,30 +670,28 @@ soc_stock_comparison_summary <- soc_stock_comparison %>%
 flextable(soc_stock_comparison_summary)
 ```
 
-```{=html}
-<div class="tabwid"><style>.cl-81010c16{}.cl-80f9361c{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-80fd47f2{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-80fd47f3{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-80fd57b0{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-80fd57ba{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-80fd57c4{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-80fd57c5{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-80fd57ce{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-80fd57cf{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-81010c16'><thead><tr style="overflow-wrap:break-word;"><th class="cl-80fd57b0"><p class="cl-80fd47f2"><span class="cl-80f9361c">depth</span></p></th><th class="cl-80fd57ba"><p class="cl-80fd47f3"><span class="cl-80f9361c">mean_diff</span></p></th><th class="cl-80fd57ba"><p class="cl-80fd47f3"><span class="cl-80f9361c">mean_percent_diff</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-80fd57c4"><p class="cl-80fd47f2"><span class="cl-80f9361c">0to30cm</span></p></td><td class="cl-80fd57c5"><p class="cl-80fd47f3"><span class="cl-80f9361c">9.2</span></p></td><td class="cl-80fd57c5"><p class="cl-80fd47f3"><span class="cl-80f9361c">20.2</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-80fd57ce"><p class="cl-80fd47f2"><span class="cl-80f9361c">0to100cm</span></p></td><td class="cl-80fd57cf"><p class="cl-80fd47f3"><span class="cl-80f9361c">9.1</span></p></td><td class="cl-80fd57cf"><p class="cl-80fd47f3"><span class="cl-80f9361c">9.8</span></p></td></tr></tbody></table></div>
-```
+<img src="dsp4sh_ref_states_figs_files/figure-gfm/table s3-2.png" width="604" />
 
-Mean difference in SOC stocks between fixed depth and ESM is 9.5 Mg/ha (greater in fixed depth vs ESM), mean percent difference is 14.3%.
+Mean difference in SOC stocks between fixed depth and ESM is 9.5 Mg/ha
+(greater in fixed depth vs ESM), mean percent difference is 14.3%.
 
 # Depth patterns in SOC
 
-![](dsp4sh_ref_states_figs_files/figure-html/fig 3-1.png)<!-- -->
+![](dsp4sh_ref_states_figs_files/figure-gfm/fig%203-1.png)<!-- -->
 
 Takeaways:
 
--   Very few projects actually showed greater SOC stocks throughout the
-    soil profile (Minnesota, Texas A&M, UTRGV)
--   Differences in C stocks tended to be most apparent at shallow depths
-    (though see Texas A&M Pt 1 and Minnesota for exceptions where
-    differences were greater deeper in the soil profile)
+- Very few projects actually showed greater SOC stocks throughout the
+  soil profile (Minnesota, Texas A&M, UTRGV)
+- Differences in C stocks tended to be most apparent at shallow depths
+  (though see Texas A&M Pt 1 and Minnesota for exceptions where
+  differences were greater deeper in the soil profile)
 
 # SHAPE Score Analysis
 
 ## SHAPE Scores and Management
 
 Does management significantly influence SHAPE scores?
-
 
 ``` r
 # Join in project data
@@ -795,52 +705,48 @@ shape_lmer <- lmer(score_mean_soc ~ label + (1|project), data = shape_spatial_pr
 summary(shape_lmer)
 ```
 
-```
-## Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-## lmerModLmerTest]
-## Formula: score_mean_soc ~ label + (1 | project)
-##    Data: shape_spatial_proj
-## 
-## REML criterion at convergence: -56.4
-## 
-## Scaled residuals: 
-##     Min      1Q  Median      3Q     Max 
-## -3.1785 -0.4952  0.0162  0.6557  2.5807 
-## 
-## Random effects:
-##  Groups   Name        Variance Std.Dev.
-##  project  (Intercept) 0.07036  0.2652  
-##  Residual             0.03934  0.1983  
-## Number of obs: 263, groups:  project, 10
-## 
-## Fixed effects:
-##              Estimate Std. Error        df t value Pr(>|t|)    
-## (Intercept)   0.50650    0.08642   9.46227   5.861 0.000198 ***
-## labelRef      0.33205    0.03246 251.52464  10.230  < 2e-16 ***
-## labelSHM      0.10133    0.03029 252.91511   3.346 0.000946 ***
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
-## Correlation of Fixed Effects:
-##          (Intr) lablRf
-## labelRef -0.132       
-## labelSHM -0.166  0.406
-```
+    ## Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+    ## lmerModLmerTest]
+    ## Formula: score_mean_soc ~ label + (1 | project)
+    ##    Data: shape_spatial_proj
+    ## 
+    ## REML criterion at convergence: -56.4
+    ## 
+    ## Scaled residuals: 
+    ##     Min      1Q  Median      3Q     Max 
+    ## -3.1785 -0.4952  0.0162  0.6557  2.5807 
+    ## 
+    ## Random effects:
+    ##  Groups   Name        Variance Std.Dev.
+    ##  project  (Intercept) 0.07036  0.2652  
+    ##  Residual             0.03934  0.1983  
+    ## Number of obs: 263, groups:  project, 10
+    ## 
+    ## Fixed effects:
+    ##              Estimate Std. Error        df t value Pr(>|t|)    
+    ## (Intercept)   0.50650    0.08642   9.46227   5.861 0.000198 ***
+    ## labelRef      0.33205    0.03246 251.52464  10.230  < 2e-16 ***
+    ## labelSHM      0.10133    0.03029 252.91511   3.346 0.000946 ***
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Correlation of Fixed Effects:
+    ##          (Intr) lablRf
+    ## labelRef -0.132       
+    ## labelSHM -0.166  0.406
 
 ``` r
 drop1(lmer(score_mean_soc ~ label + (1|project), REML=FALSE, data = shape_spatial_proj), test="Chisq")
 ```
 
-```
-## Single term deletions using Satterthwaite's method:
-## 
-## Model:
-## score_mean_soc ~ label + (1 | project)
-##       Sum Sq Mean Sq NumDF DenDF F value    Pr(>F)    
-## label  4.146   2.073     2 254.4  53.112 < 2.2e-16 ***
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-```
+    ## Single term deletions using Satterthwaite's method:
+    ## 
+    ## Model:
+    ## score_mean_soc ~ label + (1 | project)
+    ##       Sum Sq Mean Sq NumDF DenDF F value    Pr(>F)    
+    ## label  4.146   2.073     2 254.4  53.112 < 2.2e-16 ***
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 ``` r
 shape_tukey <- glht(shape_lmer, linfct = mcp(label = 'Tukey'))
@@ -854,10 +760,10 @@ shape_letters <- shape_cld %>%
   rename("letter" = ".")
 ```
 
-There is a significant effect of management on SHAPE scores when accounting for between-project variation.
+There is a significant effect of management on SHAPE scores when
+accounting for between-project variation.
 
 Plot SOC stocks vs SHAPE scores:
-
 
 ``` r
 # Need to join SHAPE scores to SOC stock data
@@ -871,27 +777,25 @@ shape_soc_lm <- lm(score_mean_soc ~ log(soc_stock_100cm), data=shape_soc_stock)
 summary(shape_soc_lm)
 ```
 
-```
-## 
-## Call:
-## lm(formula = score_mean_soc ~ log(soc_stock_100cm), data = shape_soc_stock)
-## 
-## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -0.72427 -0.14150  0.02464  0.15260  0.58300 
-## 
-## Coefficients:
-##                      Estimate Std. Error t value Pr(>|t|)    
-## (Intercept)          -0.90065    0.10988  -8.197 1.84e-14 ***
-## log(soc_stock_100cm)  0.31638    0.02305  13.728  < 2e-16 ***
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
-## Residual standard error: 0.2242 on 226 degrees of freedom
-##   (48 observations deleted due to missingness)
-## Multiple R-squared:  0.4547,	Adjusted R-squared:  0.4523 
-## F-statistic: 188.5 on 1 and 226 DF,  p-value: < 2.2e-16
-```
+    ## 
+    ## Call:
+    ## lm(formula = score_mean_soc ~ log(soc_stock_100cm), data = shape_soc_stock)
+    ## 
+    ## Residuals:
+    ##      Min       1Q   Median       3Q      Max 
+    ## -0.72427 -0.14150  0.02464  0.15260  0.58300 
+    ## 
+    ## Coefficients:
+    ##                      Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)          -0.90065    0.10988  -8.197 1.84e-14 ***
+    ## log(soc_stock_100cm)  0.31638    0.02305  13.728  < 2e-16 ***
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Residual standard error: 0.2242 on 226 degrees of freedom
+    ##   (48 observations deleted due to missingness)
+    ## Multiple R-squared:  0.4547, Adjusted R-squared:  0.4523 
+    ## F-statistic: 188.5 on 1 and 226 DF,  p-value: < 2.2e-16
 
 ``` r
 # Plot
@@ -911,26 +815,18 @@ shape_soc_plot <- ggplot(shape_soc_stock, aes(x=soc_stock_100cm, y=score_mean_so
 
 Boxplots of SHAPE SOC scores:
 
+    ## Warning: Removed 13 rows containing non-finite outside the scale range
+    ## (`stat_boxplot()`).
+    ## Removed 13 rows containing non-finite outside the scale range
+    ## (`stat_boxplot()`).
 
-```
-## Warning: Removed 13 rows containing non-finite outside the scale range
-## (`stat_boxplot()`).
-## Removed 13 rows containing non-finite outside the scale range
-## (`stat_boxplot()`).
-```
+    ## Warning: Removed 48 rows containing non-finite outside the scale range
+    ## (`stat_smooth()`).
 
-```
-## Warning: Removed 48 rows containing non-finite outside the scale range
-## (`stat_smooth()`).
-```
+    ## Warning: Removed 48 rows containing missing values or values outside the scale range
+    ## (`geom_point()`).
 
-```
-## Warning: Removed 48 rows containing missing values or values outside the scale range
-## (`geom_point()`).
-```
-
-![](dsp4sh_ref_states_figs_files/figure-html/fig 4-1.png)<!-- -->
-
+![](dsp4sh_ref_states_figs_files/figure-gfm/fig%204-1.png)<!-- -->
 
 ``` r
 shape_spatial_proj %>% 
@@ -939,26 +835,24 @@ shape_spatial_proj %>%
   flextable()
 ```
 
-```{=html}
-<div class="tabwid"><style>.cl-829d4bf2{}.cl-829489fe{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-82985e4e{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-82985e58{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-82987546{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-82987550{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-82987551{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8298755a{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-82987564{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8298756e{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-829d4bf2'><thead><tr style="overflow-wrap:break-word;"><th class="cl-82987546"><p class="cl-82985e4e"><span class="cl-829489fe">label</span></p></th><th class="cl-82987550"><p class="cl-82985e58"><span class="cl-829489fe">median_score</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-82987551"><p class="cl-82985e4e"><span class="cl-829489fe">BAU</span></p></td><td class="cl-8298755a"><p class="cl-82985e58"><span class="cl-829489fe">0.48</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-82987551"><p class="cl-82985e4e"><span class="cl-829489fe">Ref</span></p></td><td class="cl-8298755a"><p class="cl-82985e58"><span class="cl-829489fe">0.89</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-82987564"><p class="cl-82985e4e"><span class="cl-829489fe">SHM</span></p></td><td class="cl-8298756e"><p class="cl-82985e58"><span class="cl-829489fe">0.62</span></p></td></tr></tbody></table></div>
-```
+<img src="dsp4sh_ref_states_figs_files/figure-gfm/median SHAPE scores for abstract-1.png" width="369" />
 
 Overall, the SHAPE scores support the Ref/SHM/BAU groupings:
 
--   Very few projects had median Ref SHAPE score at 90th percentile or
-    above (Illinois, Oregon State, University of Minnesota, and UTRGV)
+- Very few projects had median Ref SHAPE score at 90th percentile or
+  above (Illinois, Oregon State, University of Minnesota, and UTRGV)
 
--   Most projects had median Ref SHAPE score at 75th percentile or above
-    (only Texas A&M projects do not hit 75th percentile - wonder if this
-    is a spatial issue)
+- Most projects had median Ref SHAPE score at 75th percentile or above
+  (only Texas A&M projects do not hit 75th percentile - wonder if this
+  is a spatial issue)
 
--   Only one project has SHM SHAPE score at 90th percentile (UConn)
+- Only one project has SHM SHAPE score at 90th percentile (UConn)
 
--   Few projects had SHM SHAPE scores at 75th percentile (University of
-    Minnesota, Oregon State, NC State is just a hair below the 75th
-    percentile)
+- Few projects had SHM SHAPE scores at 75th percentile (University of
+  Minnesota, Oregon State, NC State is just a hair below the 75th
+  percentile)
 
--   No projects had BAU SHAPE scores at or above the 75th percentile
+- No projects had BAU SHAPE scores at or above the 75th percentile
 
 ## SHAPE Scores and ESD-STMs
 
@@ -971,8 +865,9 @@ eco_sites_shape <- eco_sites %>%
   left_join(shape_spatial_proj, by="dsp_plot_id")
 ```
 
-Plot SHAPE scores and SOC% corresponding to different ecological states for project that correlated sampling sites with ecological states - UTRGV is the only project that did this.
-
+Plot SHAPE scores and SOC% corresponding to different ecological states
+for project that correlated sampling sites with ecological states -
+UTRGV is the only project that did this.
 
 ``` r
 # Compile data - need surface SOC%
@@ -1008,4 +903,4 @@ ggplot(shape_soc_utrgv, aes(x=ecological_state,
         strip.placement = "outside")
 ```
 
-![](dsp4sh_ref_states_figs_files/figure-html/fig 5-1.png)<!-- -->
+![](dsp4sh_ref_states_figs_files/figure-gfm/fig%205-1.png)<!-- -->

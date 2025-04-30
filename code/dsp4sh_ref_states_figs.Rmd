@@ -3,11 +3,7 @@ title: "DSP4SH Reference States - Manuscript Figures and Tables"
 author: "Katy Dynarski"
 date: "2024-08-07"
 output: 
-  html_document: 
-    keep_md: yes
-editor_options: 
-  markdown: 
-    wrap: 72
+  github_document
 ---
 
 ```{r setup, include=FALSE}
