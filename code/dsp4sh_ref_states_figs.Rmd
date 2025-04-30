@@ -254,7 +254,7 @@ pedon_n <- project %>%
 
 ### How many SOC and BD values were filled?
 
-```{r Table S2 - filled SOC and BD data}
+```{r Table S2}
 missing_soc <- soc_horizon %>%
   select(project, label, dsp_pedon_id, dsp_sample_id, hrzdep_t, hrzdep_b, soc_pct, c_tot_ncs, bulk_density, soc_fill, bd_fill) %>%
   filter(project!="TexasA&MPt-2", is.na(soc_pct)) %>%
@@ -309,7 +309,7 @@ soc_pedon %>% slice_max(soc_stock_100cm, n = 1) %>%
 
 Plot boxplots of total SOC stocks under different management treatments:
 
-```{r Figure 2 - soc 100 cm and 30 cm stock boxplots, echo=FALSE}
+```{r Figure 2, echo=FALSE}
 soc_pedon_toplot <- soc_pedon %>%
   filter(project!="TexasA&MPt-2") %>% # Exclude Texas A&M pt 2 because data was only collected to ~20 cm, so no stocks were calculated
   mutate(label=factor(label, levels=c("BAU", "SHM", "Ref")))
@@ -447,7 +447,7 @@ there is a significant effect of treatment when between-project
 variation is controlled for. Tukey HSD post-hoc test shows that Ref SOC
 stock is significantly different from BAU and Ref groups.
 
-```{r make table of lmer results}
+```{r table of lmer results}
 pred_let_both <- pred_let_30 %>%
   bind_rows(pred_let_100)
 
@@ -465,7 +465,7 @@ flextable(stock_lmer_table)
 
 ## Plot results of mixed linear model
 
-```{r plot results of mixed linear model to 30 and 100 cm, echo=FALSE}
+```{r plot results of mixed linear model, echo=FALSE}
 # Plot predictions of 30cm SOC stocks under each treatment
 pred_30_plot <- ggplot(pred_30, aes(x=label, y=predicted)) +
   geom_point() +

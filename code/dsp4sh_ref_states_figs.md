@@ -211,7 +211,7 @@ filled <- left_join(missing_bd, missing_soc, by="project")
 flextable(filled)
 ```
 
-<img src="dsp4sh_ref_states_figs_files/figure-gfm/Table S2 - filled SOC and BD data-1.png" width="626" />
+<img src="dsp4sh_ref_states_figs_files/figure-gfm/Table S2-1.png" width="626" />
 
 ``` r
 filled_summary <- filled %>%
@@ -222,7 +222,7 @@ filled_summary <- filled %>%
 flextable(filled_summary)
 ```
 
-<img src="dsp4sh_ref_states_figs_files/figure-gfm/Table S2 - filled SOC and BD data-2.png" width="627" />
+<img src="dsp4sh_ref_states_figs_files/figure-gfm/Table S2-2.png" width="627" />
 
 # Summary Figures of SOC Stocks
 
@@ -283,7 +283,7 @@ Plot boxplots of total SOC stocks under different management treatments:
     ## Warning: Removed 18 rows containing non-finite outside the scale range
     ## (`stat_boxplot()`).
 
-![](dsp4sh_ref_states_figs_files/figure-gfm/Figure%202%20-%20soc%20100%20cm%20and%2030%20cm%20stock%20boxplots-1.png)<!-- -->
+![](dsp4sh_ref_states_figs_files/figure-gfm/Figure%202-1.png)<!-- -->
 
 Takeaways:
 
@@ -477,11 +477,11 @@ stock_lmer_table <- drop1_both %>%
 flextable(stock_lmer_table)
 ```
 
-<img src="dsp4sh_ref_states_figs_files/figure-gfm/make table of lmer results-1.png" width="1135" />
+<img src="dsp4sh_ref_states_figs_files/figure-gfm/table of lmer results-1.png" width="1135" />
 
 ## Plot results of mixed linear model
 
-![](dsp4sh_ref_states_figs_files/figure-gfm/plot%20results%20of%20mixed%20linear%20model%20to%2030%20and%20100%20cm-1.png)<!-- -->
+![](dsp4sh_ref_states_figs_files/figure-gfm/plot%20results%20of%20mixed%20linear%20model-1.png)<!-- -->
 
 Takeaways:
 
