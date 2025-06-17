@@ -1,7 +1,7 @@
 DSP4SH Reference States - Manuscript Figures and Tables
 ================
 Katy Dynarski
-2024-08-07
+2025-06-07
 
 # Overview of DSP4SH Climate and Soil Texture
 
@@ -292,10 +292,10 @@ Takeaways:
 - Differences between treatments more apparent at 30 cm depth than 100
   cm depth
 
-- Reference sites are significantly higher in C at some, but not all
+- Reference sites appear significantly higher in C at some, but not all
   sites (Illinois, UConn, University of Minnesota, UTRGV)
 
-- Differences between SHM and BAU are infrequently observed
+- Differences between SHM and BAU are observed less frequently
 
 # Test effect of treatment on SOC stocks and concentrations with mixed linear model
 
@@ -351,8 +351,8 @@ drop1_100 <- drop1(lmer(soc_stock_100cm ~ label + (1|project), data = soc100_cle
   mutate(var="soc_stock_100")
 ```
 
-    ## Warning in tidy.anova(.): The following column names in ANOVA output were not
-    ## recognized or transformed: NumDF, DenDF
+    ## Warning: The column names NumDF and DenDF in ANOVA output were not recognized or
+    ## transformed.
 
 ``` r
 # Tukey post-hoc
@@ -432,8 +432,8 @@ drop1_30 <- drop1(lmer(soc_stock_0_30cm ~ label + (1|project), data = soc30_clea
   mutate(var="soc_stock_30")
 ```
 
-    ## Warning in tidy.anova(.): The following column names in ANOVA output were not
-    ## recognized or transformed: NumDF, DenDF
+    ## Warning: The column names NumDF and DenDF in ANOVA output were not recognized or
+    ## transformed.
 
 ``` r
 # Tukey post-hoc
@@ -482,16 +482,6 @@ flextable(stock_lmer_table)
 ## Plot results of mixed linear model
 
 ![](dsp4sh_ref_states_figs_files/figure-gfm/plot%20results%20of%20mixed%20linear%20model-1.png)<!-- -->
-
-Takeaways:
-
-- Though not many significant differences are detected between
-  treatments within each project, mixed linear model suggests that when
-  accounting for between-project variability, SOC stocks (both 30cm and
-  100cm depth) are significantly higher in the Ref condition vs. SHM and
-  BAU.
-
-- Supports choice of Ref conditions as a broad concept.
 
 # Drivers of SOC variability
 
@@ -681,8 +671,8 @@ Mean difference in SOC stocks between fixed depth and ESM is 9.5 Mg/ha
 
 Takeaways:
 
-- Very few projects actually showed greater SOC stocks throughout the
-  soil profile (Minnesota, Texas A&M, UTRGV)
+- Very few projects actually showed consistently greater SOC stocks at
+  Ref sites throughout the soil profile (Minnesota, Texas A&M, UTRGV)
 - Differences in C stocks tended to be most apparent at shallow depths
   (though see Texas A&M Pt 1 and Minnesota for exceptions where
   differences were greater deeper in the soil profile)
@@ -837,22 +827,9 @@ shape_spatial_proj %>%
 
 <img src="dsp4sh_ref_states_figs_files/figure-gfm/median SHAPE scores for abstract-1.png" width="369" />
 
-Overall, the SHAPE scores support the Ref/SHM/BAU groupings:
-
-- Very few projects had median Ref SHAPE score at 90th percentile or
-  above (Illinois, Oregon State, University of Minnesota, and UTRGV)
-
-- Most projects had median Ref SHAPE score at 75th percentile or above
-  (only Texas A&M projects do not hit 75th percentile - wonder if this
-  is a spatial issue)
-
-- Only one project has SHM SHAPE score at 90th percentile (UConn)
-
-- Few projects had SHM SHAPE scores at 75th percentile (University of
-  Minnesota, Oregon State, NC State is just a hair below the 75th
-  percentile)
-
-- No projects had BAU SHAPE scores at or above the 75th percentile
+Overall, the SHAPE scores support the Ref/SHM/BAU groupings.When scores
+are pooled across projects, scores are highest in the Ref condition,
+intermediate in SHM condition, and lowest in BAU condition.
 
 ## SHAPE Scores and ESD-STMs
 

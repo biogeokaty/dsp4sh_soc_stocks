@@ -1,7 +1,7 @@
 ---
 title: "DSP4SH Reference States - Manuscript Figures and Tables"
 author: "Katy Dynarski"
-date: "2024-08-07"
+date: "2025-06-07"
 output: 
   github_document
 ---
@@ -40,8 +40,8 @@ project <- read.csv(here("data_processed", "05_project_data.csv"))
 eco_sites <- read.csv(here("data_processed", "05_eco_sites.csv"))
 shape_spatial <- read.csv(here("data_processed", "shape_spatial.csv")) %>% clean_names()
 ssurgo_texture <- read.csv(here("data_processed", "05_ssurgo_texture.csv"))
-esm_all <- read.csv("C:/Users/Katherine.Dynarski/Documents/R Projects/esm/data_processed/esm_all.csv")
-meta_df <- read.csv(here("data_processed", "05_meta_df_alt.csv"))
+esm_all <- read.csv(here("data_processed", "esm_all.csv"))
+meta_df <- read.csv(here("data_processed", "05_meta_df.csv"))
 
 # Make list with mean and sd functions for generating summary tables
 mean_sd <- list(
@@ -352,10 +352,10 @@ Takeaways:
 -   Differences between treatments more apparent at 30 cm depth than 100
     cm depth
 
--   Reference sites are significantly higher in C at some, but not all
+-   Reference sites appear significantly higher in C at some, but not all
     sites (Illinois, UConn, University of Minnesota, UTRGV)
 
--   Differences between SHM and BAU are infrequently observed
+-   Differences between SHM and BAU are observed less frequently
 
 # Test effect of treatment on SOC stocks and concentrations with mixed linear model
 
@@ -482,16 +482,6 @@ pred_100_plot <- ggplot(pred_100, aes(x=label, y=predicted)) +
 
 pred_30_plot + pred_100_plot
 ```
-
-Takeaways:
-
--   Though not many significant differences are detected between
-    treatments within each project, mixed linear model suggests that
-    when accounting for between-project variability, SOC stocks (both
-    30cm and 100cm depth) are significantly higher in the Ref condition
-    vs. SHM and BAU.
-
--   Supports choice of Ref conditions as a broad concept.
 
 # Drivers of SOC variability
 
@@ -711,7 +701,7 @@ ggplot(slab_mgmt, aes(x=top, y=p.q50)) +
 
 Takeaways:
 
--   Very few projects actually showed greater SOC stocks throughout the
+-   Very few projects actually showed consistently greater SOC stocks at Ref sites throughout the
     soil profile (Minnesota, Texas A&M, UTRGV)
 -   Differences in C stocks tended to be most apparent at shallow depths
     (though see Texas A&M Pt 1 and Minnesota for exceptions where
@@ -824,22 +814,7 @@ shape_spatial_proj %>%
   flextable()
 ```
 
-Overall, the SHAPE scores support the Ref/SHM/BAU groupings:
-
--   Very few projects had median Ref SHAPE score at 90th percentile or
-    above (Illinois, Oregon State, University of Minnesota, and UTRGV)
-
--   Most projects had median Ref SHAPE score at 75th percentile or above
-    (only Texas A&M projects do not hit 75th percentile - wonder if this
-    is a spatial issue)
-
--   Only one project has SHM SHAPE score at 90th percentile (UConn)
-
--   Few projects had SHM SHAPE scores at 75th percentile (University of
-    Minnesota, Oregon State, NC State is just a hair below the 75th
-    percentile)
-
--   No projects had BAU SHAPE scores at or above the 75th percentile
+Overall, the SHAPE scores support the Ref/SHM/BAU groupings.When scores are pooled across projects, scores are highest in the Ref condition, intermediate in SHM condition, and lowest in BAU condition.
 
 ## SHAPE Scores and ESD-STMs
 ```{r join ecological site data to SHAPE data}
